@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-18 Tue 19:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On the way to master VIM and Evil in Emacs</title>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">On the way to master VIM and Evil in Emacs</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org171f83f">1. VIM 的基本语法</a>
+<ul>
+<li><a href="#org58749bd">1.1. 操作符</a></li>
+</ul>
+</li>
+<li><a href="#org59e6213">2. 删除所有包括特定字符的行</a></li>
+<li><a href="#org1ada682">3. Visual model</a>
+<ul>
+<li><a href="#org3e37d13">3.1. 可视区域的选择</a></li>
+<li><a href="#org9d87134">3.2. 可视区域跳转</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org171f83f" class="outline-2">
+<h2 id="org171f83f"><span class="section-number-2">1.</span> VIM 的基本语法</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>操作符 + 动作命令 = 操作</li>
+<li>操作符连续调用两次，作用于当前行。</li>
+</ol>
+</div>
+
+
+<div id="outline-container-org58749bd" class="outline-3">
+<h3 id="org58749bd"><span class="section-number-3">1.1.</span> 操作符</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+d: 删除符
+c: 修改
+x: 删除当前字符
+r: 修改当前字符
+R：修改字符
+y: 复制
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59e6213" class="outline-2">
+<h2 id="org59e6213"><span class="section-number-2">2.</span> 删除所有包括特定字符的行</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-bash">:%g/foo/d
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>: 进入 Vim 的 Command line。</li>
+<li>%：指定命令应用于整个文件。</li>
+<li>g：指定该命令应该对匹配搜索模式的所有行进行操作。</li>
+<li>/foo/：指定要查找的搜索模式。</li>
+<li>d：指定对每条匹配的行执行的动作，即删除。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1ada682" class="outline-2">
+<h2 id="org1ada682"><span class="section-number-2">3.</span> Visual model</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org3e37d13" class="outline-3">
+<h3 id="org3e37d13"><span class="section-number-3">3.1.</span> 可视区域的选择</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+在 Emacs 中将按键 <code>v</code> 绑定到 <code>er/expand-region</code> ，这样就可以通过 <code>v</code> 来扩展区域。
+</p>
+
+<p>
+通过 <code>Shift+v</code> 来选择一行区域，通过 <code>C-v</code> 来竖向选择区域。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d87134" class="outline-3">
+<h3 id="org9d87134"><span class="section-number-3">3.2.</span> 可视区域跳转</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+通过 <code>v</code> 选择区域后，可以使用 <code>o</code> 进行区域的开头和结尾进行跳转，这样可以方便的扩展视觉选择范围。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr><div class="generated">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.3) on MacOS</div>
+</div>
+</body>
+</html>
