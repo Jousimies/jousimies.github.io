@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-19 Wed 14:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>在 Emacs 中使用 diary-lib 包写日记</title>
+<meta name="author" content="Jousimies" />
+<meta name="description" content="使用 diary-lib 记日记" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">在 Emacs 中使用 diary-lib 包写日记</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5db1591">1. 晨间日记</a></li>
+<li><a href="#org55c1f13">2. 探索 diary-lib</a></li>
+<li><a href="#org2931bf9">3. More</a></li>
+</ul>
+</div>
+</div>
+<p>
+Emacs 写日记的功能实现有好几个插件，如 org 自带的 diary-lib，第三方实现的有 org-journal 和 diary-manage，或者也可以使用 org-roam 的 daily note 记录日记。
+</p>
+
+<div id="outline-container-org5db1591" class="outline-2">
+<h2 id="org5db1591"><span class="section-number-2">1.</span> 晨间日记</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+关于记日方的方法，有一本书叫<a href="https://book.douban.com/subject/3744041/">晨间日记的奇迹</a>。为什么叫晨间日记，是因为作者建议把记日方记的时间放到早晨进行，他认为当天晚上记日记会将当天不好的情绪记录下来，在第二天早晨进行的话就会反思自己的行为而不是情绪的宣泄。
+</p>
+
+<p>
+此外书中还提出了将连续三年的日记放到一些，这样就可以看到在前年、去年及现在发生的事情，我认为这个点不错，对于周年的事务是个不错的提示。这本书不好的地方是内容写的太碎，不得不佩服日本人，明明几句话能说清楚的事可以用一本书来说明。
+</p>
+
+<p>
+回到 Emacs 上，使用 org-journal、org-roam daily、diary-manage 进行日记记录，文件是以每一天保存的，这个意味当你想回头看自己的日记时你需要打开每个文件，这个体验实在是差。org-journal 可以设置以 weekly、monthly、yearly 进行日记的记录。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55c1f13" class="outline-2">
+<h2 id="org55c1f13"><span class="section-number-2">2.</span> 探索 diary-lib</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+首先调用相关的命令看看能实现什么样的功能，其次看看相关的 variables 设置，最后去 Google 上搜索看看有没有人分享相关的使用体验。 找到两个相关的：
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.emacswiki.org/emacs/DiaryMode">EmacsWiki: Diary Mode</a></li>
+<li><a href="https://www.youtube.com/watch?v=NkhgIB64zgc">Emacs: Diary and Calendar - YouTube</a>。</li>
+</ul>
+
+<blockquote>
+<p>
+The calendar (‘M-x calendar’) can show you diary entries for a particular day when you press ‘d’ (for more on calendar stuff, see CalendarMode). You might also be interested in AppointmentMode to get reminders for events a few minutes before they happen.
+</p>
+</blockquote>
+
+<p>
+上面的简介说可以将 diary 与 calendar 及 appointment 结合起来使用。这样的话需要首先打开 calendar，没有默认的按键，先给其绑定一个 <code>SPC c</code> 。使用 diary-lib 需要设置 diary-file 的文件路径。打开 calendar 界面显示如下：
+</p>
+
+
+<div id="orgb629343" class="figure">
+<p><img src="../static/20221120000608Calendar 界面.png" alt="20221120000608Calendar 界面.png" width="600px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Calendar 界面</p>
+</div>
+
+<p>
+打开 Calendar 之后使用 <code>id</code> 来插入当天的日记内容。
+</p>
+
+<p>
+关于日记内容的格式，如果只是简单的一句话，可以直接跟在日期后面，如果内容比较多，可以按行后保持统一的缩进格式即可。
+</p>
+
+<p>
+所有的日志文件都保存在一个文件当中，使用 Calendar 查看的时候可以根据需要显示几天的内容，也可以打开该文件查看所有的日记内容。这个体验比 org-journal 或者 org-roam daily 笔记好用。
+</p>
+</div>
+</div>
+<div id="outline-container-org2931bf9" class="outline-2">
+<h2 id="org2931bf9"><span class="section-number-2">3.</span> More</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+需要思考下怎么进行 filter 可以达到晨间日记中提出的同时查看过去两年当天的笔记内容。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.3) on MacOS</span>
+ <span class="updated">Updated: 2023-04-19 Wed 14:15</span> </div>
+</div>
+</body>
+</html>

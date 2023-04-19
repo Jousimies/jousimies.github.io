@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-19 Wed 14:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why I gave up org-roam</title>
+<meta name="author" content="Jousimies" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">Why I gave up org-roam</h1>
+<p>
+Org-roam 有自身的优势。如使用 sql 数据库管理笔记，此外结合其他的包一起使用生态很好。目前在 org-roam 之上发展出来的其他包有很多，如 org-roam-ui 显示脑图，org-roam-bibtex 管理文献笔记，consult-org-roam 进行笔记的全文搜索、link 和 backlink 的快捷跳转。vulpea 生成动态的 org-agenda。
+</p>
+
+<p>
+但是我在使用一年期间遇到了很多的问题。如：
+</p>
+
+<ol class="org-ol">
+<li>找不到 ID
+Zettelkasten 做笔记要求之一是不要删除笔记内容。使用 org-roam 的时候经常会整理笔记的内容，有时候在别处进行了链接，但是给忘记了，回头链接的内容就失效，有时候也想不起来在哪里有过引用，等需要的时候己经变得不可找回。</li>
+
+<li>Org-roam 推荐使用 headline
+我认为 org-roam 适合写长文，文件有自己的 ID，然后其中的 headline 有自己的 ID。这使得 org-roam 一个文件中包含了很多的内容。</li>
+
+<li>使用 org-roam 管理文献笔记
+文献笔记没有引用的时候在 org-roam-ui 中是一些孤立的点。这里更大的问题其实是做了笔记但是没有很好的拆分到更细的笔记条目中去。</li>
+
+<li>Org-roam-ui 显示问题
+此外，比如我写文献综述，加了很多的 citation，这个在 org-roam-ui 中就会显示一大坨，很影响观感。</li>
+</ol>
+
+
+<p>
+当然以上不是不可解决的问题。最主要的问题还是使用 org-roam 的过程中少了对于笔记的整理过程， org-roam 成了仓库，而不是思维的发展过程。
+</p>
+
+<p>
+目前切到 denote signature 分支上使用，在创建一则笔记之前，强制要求手动创建笔记的 index id，这就要求对于要记录的笔记思考它在笔记序列中所处的位置，进而达到强制要求对于笔记的整理工作。
+</p>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.3) on MacOS</span>
+ <span class="updated">Updated: 2023-04-19 Wed 14:17</span> </div>
+</div>
+</body>
+</html>
