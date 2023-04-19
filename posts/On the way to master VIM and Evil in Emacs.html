@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-18 Tue 19:25 -->
+<!-- 2023-04-19 Wed 11:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>On the way to master VIM and Evil in Emacs</title>
+<meta name="author" content="Jousimie" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
@@ -23,24 +24,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org171f83f">1. VIM 的基本语法</a>
+<li><a href="#org2b3d24d">1. VIM 的基本语法</a>
 <ul>
-<li><a href="#org58749bd">1.1. 操作符</a></li>
+<li><a href="#org053b324">1.1. 操作符</a></li>
 </ul>
 </li>
-<li><a href="#org59e6213">2. 删除所有包括特定字符的行</a></li>
-<li><a href="#org1ada682">3. Visual model</a>
+<li><a href="#org1f8a7e6">2. 删除所有包括特定字符的行</a></li>
+<li><a href="#org27f7c2c">3. Visual model</a>
 <ul>
-<li><a href="#org3e37d13">3.1. 可视区域的选择</a></li>
-<li><a href="#org9d87134">3.2. 可视区域跳转</a></li>
+<li><a href="#org33622e0">3.1. 可视区域的选择</a></li>
+<li><a href="#org1b1d4b5">3.2. 可视区域跳转</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org171f83f" class="outline-2">
-<h2 id="org171f83f"><span class="section-number-2">1.</span> VIM 的基本语法</h2>
+<div id="outline-container-org2b3d24d" class="outline-2">
+<h2 id="org2b3d24d"><span class="section-number-2">1.</span> VIM 的基本语法</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>操作符 + 动作命令 = 操作</li>
@@ -49,8 +50,8 @@
 </div>
 
 
-<div id="outline-container-org58749bd" class="outline-3">
-<h3 id="org58749bd"><span class="section-number-3">1.1.</span> 操作符</h3>
+<div id="outline-container-org053b324" class="outline-3">
+<h3 id="org053b324"><span class="section-number-3">1.1.</span> 操作符</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 d: 删除符
@@ -64,8 +65,8 @@ y: 复制
 </div>
 </div>
 
-<div id="outline-container-org59e6213" class="outline-2">
-<h2 id="org59e6213"><span class="section-number-2">2.</span> 删除所有包括特定字符的行</h2>
+<div id="outline-container-org1f8a7e6" class="outline-2">
+<h2 id="org1f8a7e6"><span class="section-number-2">2.</span> 删除所有包括特定字符的行</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-bash">:%g/foo/d
@@ -82,12 +83,12 @@ y: 复制
 </div>
 </div>
 
-<div id="outline-container-org1ada682" class="outline-2">
-<h2 id="org1ada682"><span class="section-number-2">3.</span> Visual model</h2>
+<div id="outline-container-org27f7c2c" class="outline-2">
+<h2 id="org27f7c2c"><span class="section-number-2">3.</span> Visual model</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3e37d13" class="outline-3">
-<h3 id="org3e37d13"><span class="section-number-3">3.1.</span> 可视区域的选择</h3>
+<div id="outline-container-org33622e0" class="outline-3">
+<h3 id="org33622e0"><span class="section-number-3">3.1.</span> 可视区域的选择</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 在 Emacs 中将按键 <code>v</code> 绑定到 <code>er/expand-region</code> ，这样就可以通过 <code>v</code> 来扩展区域。
@@ -99,8 +100,8 @@ y: 复制
 </div>
 </div>
 
-<div id="outline-container-org9d87134" class="outline-3">
-<h3 id="org9d87134"><span class="section-number-3">3.2.</span> 可视区域跳转</h3>
+<div id="outline-container-org1b1d4b5" class="outline-3">
+<h3 id="org1b1d4b5"><span class="section-number-3">3.2.</span> 可视区域跳转</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 通过 <code>v</code> 选择区域后，可以使用 <code>o</code> 进行区域的开头和结尾进行跳转，这样可以方便的扩展视觉选择范围。

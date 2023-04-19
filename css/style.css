@@ -10,6 +10,7 @@ body {
 #preamble {
     width: 80%;
     max-width: 980px;
+    text-align: right;
     margin: auto;
 }
 
@@ -144,11 +145,33 @@ a:hover {
 
 .org-src-container {
     font-size: 14px;
-    outline-style: solid;
+    outline: 2px dashed #ccc;
     outline-offset: 10px;
+    position: relative;
+}
+
+.org-src-container::before {
+  content: "Copy";
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  /* padding: 1px; */
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 code {
     font-size: 16px;
     color: #4F894C;
+}
+
+.subtitle {
+  text-align: right;
+}
+
+blockquote {
+  border-left: 3px solid #ccc;
+  padding-left: 10px; /* Optional: add some left padding for the content */
 }
