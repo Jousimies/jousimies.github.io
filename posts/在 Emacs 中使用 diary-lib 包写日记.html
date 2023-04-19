@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-19 Wed 14:15 -->
+<!-- 2023-04-19 Wed 19:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>在 Emacs 中使用 diary-lib 包写日记</title>
@@ -13,11 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="/"> HOME </a>
-</div><div id="preamble" class="status">
+<div id="preamble" class="status">
 <a href="/index.html" class="button">Home</a>
                <a href="/posts/index.html" class="button">Posts</a>
                <a href="/about.html" class="button">About</a>
@@ -29,9 +25,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5db1591">1. 晨间日记</a></li>
-<li><a href="#org55c1f13">2. 探索 diary-lib</a></li>
-<li><a href="#org2931bf9">3. More</a></li>
+<li><a href="#orgf7519c9">1. 晨间日记</a></li>
+<li><a href="#orgbb6fcc6">2. 探索 diary-lib</a></li>
+<li><a href="#org6356615">3. More</a></li>
 </ul>
 </div>
 </div>
@@ -39,8 +35,8 @@
 Emacs 写日记的功能实现有好几个插件，如 org 自带的 diary-lib，第三方实现的有 org-journal 和 diary-manage，或者也可以使用 org-roam 的 daily note 记录日记。
 </p>
 
-<div id="outline-container-org5db1591" class="outline-2">
-<h2 id="org5db1591"><span class="section-number-2">1.</span> 晨间日记</h2>
+<div id="outline-container-orgf7519c9" class="outline-2">
+<h2 id="orgf7519c9"><span class="section-number-2">1.</span> 晨间日记</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 关于记日方的方法，有一本书叫<a href="https://book.douban.com/subject/3744041/">晨间日记的奇迹</a>。为什么叫晨间日记，是因为作者建议把记日方记的时间放到早晨进行，他认为当天晚上记日记会将当天不好的情绪记录下来，在第二天早晨进行的话就会反思自己的行为而不是情绪的宣泄。
@@ -56,8 +52,8 @@ Emacs 写日记的功能实现有好几个插件，如 org 自带的 diary-lib�
 </div>
 </div>
 
-<div id="outline-container-org55c1f13" class="outline-2">
-<h2 id="org55c1f13"><span class="section-number-2">2.</span> 探索 diary-lib</h2>
+<div id="outline-container-orgbb6fcc6" class="outline-2">
+<h2 id="orgbb6fcc6"><span class="section-number-2">2.</span> 探索 diary-lib</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 首先调用相关的命令看看能实现什么样的功能，其次看看相关的 variables 设置，最后去 Google 上搜索看看有没有人分享相关的使用体验。 找到两个相关的：
@@ -79,7 +75,7 @@ The calendar (‘M-x calendar’) can show you diary entries for a particular da
 </p>
 
 
-<div id="orgb629343" class="figure">
+<div id="org842900d" class="figure">
 <p><img src="../static/20221120000608Calendar 界面.png" alt="20221120000608Calendar 界面.png" width="600px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Calendar 界面</p>
@@ -98,8 +94,8 @@ The calendar (‘M-x calendar’) can show you diary entries for a particular da
 </p>
 </div>
 </div>
-<div id="outline-container-org2931bf9" class="outline-2">
-<h2 id="org2931bf9"><span class="section-number-2">3.</span> More</h2>
+<div id="outline-container-org6356615" class="outline-2">
+<h2 id="org6356615"><span class="section-number-2">3.</span> More</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 需要思考下怎么进行 filter 可以达到晨间日记中提出的同时查看过去两年当天的笔记内容。
