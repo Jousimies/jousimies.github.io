@@ -6,6 +6,7 @@ body {
     width: 900px;
     max-width: 100%;
     background: white;
+    font-size: 18px;
 }
 
 #preamble {
@@ -28,7 +29,6 @@ hr {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -52,12 +52,6 @@ hr {
     font-family:sans-serif;
 }
 
-@media screen and (max-width: 768px) {
-    #table-of-contents {
-        display: none;
-    }
-}
-
 #table-of-contents {
     margin-top: 105px;
     font-size: 12pt;
@@ -70,11 +64,14 @@ hr {
 }
 
 #table-of-contents h2 {
-  display: none;
+    display: none;
 }
 
-p {
-    font-size: 20px;
+@media screen and (max-width: 1200px) {
+    #table-of-contents {
+        position: relative;
+        margin-top: 0px;
+    }
 }
 
 p:not(blockquote > p) :not(ol > p) {
@@ -135,7 +132,6 @@ a {
 }
 
 a:link {
-    font-size: 15px;
     color: #0c2340;
 }
 
@@ -149,6 +145,16 @@ a:hover {
     text-align: center;
 }
 
+img {
+  width: 600px;
+}
+
+@media screen and (max-width: 1200px) {
+    img {
+        width: 400px;
+    }
+}
+
 .org-src-container {
     font-size: 14px;
     outline: 2px dashed #ccc;
@@ -156,17 +162,17 @@ a:hover {
     position: relative;
 }
 
-.org-src-container::before {
-    content: "Copy";
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 5px;
-    background-color: #ccc;
-    color: #fff;
-    border-radius: 3px;
-    cursor: pointer;
-}
+/* .org-src-container::before { */
+/*     content: "Copy"; */
+/*     position: absolute; */
+/*     top: 5px; */
+/*     right: 5px; */
+/*     padding: 5px; */
+/*     background-color: #ccc; */
+/*     color: #fff; */
+/*     border-radius: 3px; */
+/*     cursor: pointer; */
+/* } */
 
 code {
     font-size: 16px;
@@ -195,7 +201,6 @@ blockquote {
 }
 
 .org-ol {
-    font-size: 20px;
     list-style-type: decimal; /* Set the list style type to decimal numbers */
     margin-left: 1.5em; /* Add left margin to the list */
 }
@@ -205,24 +210,33 @@ b {
 }
 
 #footnotes {
-  position: fixed;
-  left: auto;
-  right: 0;
-  top: 105px;
-  bottom: 0;
-  width: 20%;
-  padding: 10px;
-  font-size: 14px;
-  overflow: auto;
-  z-index: 9999;
+    position: fixed;
+    left: auto;
+    right: 0;
+    top: 105px;
+    bottom: 0;
+    width: 20%;
+    padding: 10px;
+    overflow: auto;
+    font-size: 14px;
+    z-index: 9999;
 }
 
 #footnotes h2 {
-  display: none;
+    display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     #footnotes {
-        display: none;
+        position: static;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-height: 30%;
+        overflow: auto;
+        padding: 10px;
+        font-size: 14px;
+        z-index: 9999;
     }
 }

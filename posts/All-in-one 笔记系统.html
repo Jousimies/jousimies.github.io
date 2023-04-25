@@ -3,13 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-19 Wed 20:17 -->
+<!-- 2023-04-25 Tue 11:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>All-in-one 笔记系统</title>
 <meta name="author" content="Jousimie" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+         <script src="js/copy.js"></script> 
 </head>
 <body>
 <div id="preamble" class="status">
@@ -24,27 +25,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org442a9bd">1. 笔记的基本</a>
+<li><a href="#org43f79eb">1. 笔记的基本</a>
 <ul>
-<li><a href="#org582b909">1.1. 文本+格式</a></li>
-<li><a href="#orgdff8bd5">1.2. 图表</a></li>
-<li><a href="#org4ece9ad">1.3. 公式</a></li>
-<li><a href="#orga6fa324">1.4. 文献管理</a></li>
-<li><a href="#org90e402f">1.5. 音频和视频</a></li>
+<li><a href="#orgf18925e">1.1. 文本+格式</a></li>
+<li><a href="#org7a66207">1.2. 图表</a></li>
+<li><a href="#org6a65cff">1.3. 公式</a></li>
+<li><a href="#org3e00d32">1.4. 文献管理</a></li>
+<li><a href="#orge16b335">1.5. 音频和视频</a></li>
 </ul>
 </li>
-<li><a href="#orgf039bff">2. 笔记的原则</a>
+<li><a href="#org819a558">2. 笔记的原则</a>
 <ul>
-<li><a href="#orgee17b0e">2.1. 笔记本身</a></li>
-<li><a href="#orgc8f9068">2.2. 笔记工具</a></li>
+<li><a href="#orgfacccbf">2.1. 笔记本身</a></li>
+<li><a href="#orgafe5db8">2.2. 笔记工具</a></li>
 </ul>
 </li>
-<li><a href="#orga23a3e9">3. 笔记的流程</a></li>
-<li><a href="#org71f1b0c">4. 笔记体系</a></li>
-<li><a href="#org489d2ca">5. 笔记软件选取原则</a></li>
-<li><a href="#org42ca498">6. Emacs 如何实现上述的笔记管理</a>
+<li><a href="#org3a448d7">3. 笔记的流程</a></li>
+<li><a href="#orgdbeac6b">4. 笔记体系</a></li>
+<li><a href="#org8cd9257">5. 笔记软件选取原则</a></li>
+<li><a href="#orgc1d1dff">6. Emacs 如何实现上述的笔记管理</a>
 <ul>
-<li><a href="#orga2712dc">6.1. 笔记界面</a></li>
+<li><a href="#org785f45d">6.1. 笔记界面</a></li>
 </ul>
 </li>
 </ul>
@@ -76,8 +77,8 @@ An extensible, customizable, free/libre text editor — and more.
 在上面的提问中，提问者列出了自己关于 all-in-one 笔记的系统的几点要求。笔记记的是什么内容呢，初步列举如下：
 </p>
 
-<div id="outline-container-org442a9bd" class="outline-2">
-<h2 id="org442a9bd"><span class="section-number-2">1.</span> 笔记的基本</h2>
+<div id="outline-container-org43f79eb" class="outline-2">
+<h2 id="org43f79eb"><span class="section-number-2">1.</span> 笔记的基本</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 此处的笔记以文字内容为主，图片、视频为辅。若笔记内容主要是图片或者视频，此文对于笔记的管理方法不太适合你。
@@ -88,8 +89,8 @@ An extensible, customizable, free/libre text editor — and more.
 </p>
 </div>
 
-<div id="outline-container-org582b909" class="outline-3">
-<h3 id="org582b909"><span class="section-number-3">1.1.</span> 文本+格式</h3>
+<div id="outline-container-orgf18925e" class="outline-3">
+<h3 id="orgf18925e"><span class="section-number-3">1.1.</span> 文本+格式</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 笔记肯定第一位的就是需要记录大量的文本内容。那么文本只能是汉字、英文、字母吗？当然不是，文本也有格式，如对文本进行加粗、斜体、引用、列表等等。文本+格式只要是个笔记软件应该都能提供（window 上的 txt 记事本不行，过于简陋）。
@@ -101,8 +102,8 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-orgdff8bd5" class="outline-3">
-<h3 id="orgdff8bd5"><span class="section-number-3">1.2.</span> 图表</h3>
+<div id="outline-container-org7a66207" class="outline-3">
+<h3 id="org7a66207"><span class="section-number-3">1.2.</span> 图表</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 我认为表格只是文本内容呈现的另一种方式，笔记系统中不需要使用过于复杂的表格。
@@ -122,8 +123,8 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-org4ece9ad" class="outline-3">
-<h3 id="org4ece9ad"><span class="section-number-3">1.3.</span> 公式</h3>
+<div id="outline-container-org6a65cff" class="outline-3">
+<h3 id="org6a65cff"><span class="section-number-3">1.3.</span> 公式</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 公式我只推荐使用 latex ，以文本的方式进行管理。如 Word 上使用 mathtype 进行公式的输入非常差，难以编排，交叉引用。
@@ -135,8 +136,8 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-orga6fa324" class="outline-3">
-<h3 id="orga6fa324"><span class="section-number-3">1.4.</span> 文献管理</h3>
+<div id="outline-container-org3e00d32" class="outline-3">
+<h3 id="org3e00d32"><span class="section-number-3">1.4.</span> 文献管理</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 文献管理软件有很多，如zotero，endnote，mendeley，jabref等等。笔记系统中我推荐使用zotero，其他都不做推荐。我更喜欢的方式是直接管理bibtex文件，zotero只是我用来收集bib的工具。
@@ -156,8 +157,8 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-org90e402f" class="outline-3">
-<h3 id="org90e402f"><span class="section-number-3">1.5.</span> 音频和视频</h3>
+<div id="outline-container-orge16b335" class="outline-3">
+<h3 id="orge16b335"><span class="section-number-3">1.5.</span> 音频和视频</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 这里不过多写，我没这个需求。对此没什么实践。
@@ -167,12 +168,12 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 
 
-<div id="outline-container-orgf039bff" class="outline-2">
-<h2 id="orgf039bff"><span class="section-number-2">2.</span> 笔记的原则</h2>
+<div id="outline-container-org819a558" class="outline-2">
+<h2 id="org819a558"><span class="section-number-2">2.</span> 笔记的原则</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgee17b0e" class="outline-3">
-<h3 id="orgee17b0e"><span class="section-number-3">2.1.</span> 笔记本身</h3>
+<div id="outline-container-orgfacccbf" class="outline-3">
+<h3 id="orgfacccbf"><span class="section-number-3">2.1.</span> 笔记本身</h3>
 <div class="outline-text-3" id="text-2-1">
 <blockquote>
 <p>
@@ -194,8 +195,8 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-orgc8f9068" class="outline-3">
-<h3 id="orgc8f9068"><span class="section-number-3">2.2.</span> 笔记工具</h3>
+<div id="outline-container-orgafe5db8" class="outline-3">
+<h3 id="orgafe5db8"><span class="section-number-3">2.2.</span> 笔记工具</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 传统的笔记工具以纸笔为载体，各种<a href="https://www.zhihu.com/question/54213171">手账</a>、剪纸等，以纸笔为载体是纸媒时代的最有效的进行笔记管理的方式，如何有效整理信息这本书的作者就提出了一元化的笔记方法，作者本人也积累了大量的笔记本。个人很配服他的这种毅力，平常人很难一以贯之的坚持进行笔记的记录。
@@ -215,8 +216,8 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 </div>
-<div id="outline-container-orga23a3e9" class="outline-2">
-<h2 id="orga23a3e9"><span class="section-number-2">3.</span> 笔记的流程</h2>
+<div id="outline-container-org3a448d7" class="outline-2">
+<h2 id="org3a448d7"><span class="section-number-2">3.</span> 笔记的流程</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在 How to take smart notes 中作者提出了如下的笔记流程。这个流程是关于记笔记的终极答案，但是个人觉得这样的笔记方式对于笔记的记录是一件很耗费精神的事情，由其是在把临时笔记和文学笔记转化为永久笔记的过程中，所以个人认为这一步可以简化。
@@ -242,24 +243,27 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-org71f1b0c" class="outline-2">
-<h2 id="org71f1b0c"><span class="section-number-2">4.</span> 笔记体系</h2>
+<div id="outline-container-orgdbeac6b" class="outline-2">
+<h2 id="orgdbeac6b"><span class="section-number-2">4.</span> 笔记体系</h2>
 <div class="outline-text-2" id="text-4">
 
-<div id="orgff78630" class="figure">
-<p><img src="../static/20221229103238screenshot.png" alt="20221229103238screenshot.png" width="600px" />
+<div id="orgecf88da" class="figure">
+<p><img src="../static/20221229103238screenshot.png" alt="20221229103238screenshot.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org489d2ca" class="outline-2">
-<h2 id="org489d2ca"><span class="section-number-2">5.</span> 笔记软件选取原则</h2>
+<div id="outline-container-org8cd9257" class="outline-2">
+<h2 id="org8cd9257"><span class="section-number-2">5.</span> 笔记软件选取原则</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><p>
 本地管理
-这一点排除了一堆以云端存储笔记的软件，如Onenote 、Notion 、印象笔记等。不使用 Onenote 是因为它的同步实在是一个问题，其他的软件不是很信任。比知这个：<a href="https://www.zhihu.com/question/521826071/answer/2579062261">https://www.zhihu.com/question/521826071/answer/2579062261</a>
+</p>
+
+<p>
+这一点排除了一堆以云端存储笔记的软件，如Onenote 、Notion 、印象笔记等。不使用 Onenote 是因为它的同步实在是一个问题，其他的软件不是很信任。比如这个：<a href="https://www.zhihu.com/question/521826071/answer/2579062261">https://www.zhihu.com/question/521826071/answer/2579062261</a>
 </p>
 
 <p>
@@ -268,6 +272,9 @@ An extensible, customizable, free/libre text editor — and more.
 
 <li><p>
 纯文本格式
+</p>
+
+<p>
 纯文本意味着脱离软件本体同样可以使用其他的软件打开，它的本质只是文本，不像Word 、Onenote 等属于富文本文档。富文本文档当脱离软件之后其他的软件是不能进行编辑的。有太多的笔记软件不支持导出或者不支持特定格式的文本导出，有些软件刚开始支持导出，后来又不支持导出，使用这类软件风险太高。<a href="https://www.zhihu.com/question/457278378/answer/2414238157">(3 封私信) 有道云笔记等笔记软件不支持笔记批量导出，算是垄断吗？ - 知乎</a> 、<a href="https://www.zhihu.com/question/353964206/answer/1397040546">(3 封私信) 使用goodnotes导出文件太大不能导出怎样解决？ - 知乎</a> 太多的问题自己查询。
 </p>
 
@@ -287,23 +294,23 @@ An extensible, customizable, free/libre text editor — and more.
 </div>
 </div>
 
-<div id="outline-container-org42ca498" class="outline-2">
-<h2 id="org42ca498"><span class="section-number-2">6.</span> Emacs 如何实现上述的笔记管理</h2>
+<div id="outline-container-orgc1d1dff" class="outline-2">
+<h2 id="orgc1d1dff"><span class="section-number-2">6.</span> Emacs 如何实现上述的笔记管理</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Emacs 中进行笔记写作依赖的是 org-mode，关于 org-mode 的介绍可以见其官方网站，网上也有很人写了介绍。
 </p>
 
 
-<div id="orgf844979" class="figure">
+<div id="orgc9e2537" class="figure">
 <p><img src="../static/20220705094939.png" alt="20220705094939.png" width="600px" />
 </p>
 <p><span class="figure-number">Figure 2: </span>笔记界面</p>
 </div>
 </div>
 
-<div id="outline-container-orga2712dc" class="outline-3">
-<h3 id="orga2712dc"><span class="section-number-3">6.1.</span> 笔记界面</h3>
+<div id="outline-container-org785f45d" class="outline-3">
+<h3 id="org785f45d"><span class="section-number-3">6.1.</span> 笔记界面</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Emacs 上想要实现笔记还需要依赖其他的包，好在这些都是开源的，你不需要担心其突然就不能用的问题。
@@ -343,8 +350,8 @@ org-mode 自带表格功能，简单的矩阵式表格使用自带的即可。�
 </div>
 </div></div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.3) on MacOS</span>
- <span class="updated">Updated: 2023-04-19 Wed 20:17</span> </div>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.4) on MacOS</span>
+ <span class="updated">Updated: 2023-04-25 Tue 11:23</span> </div>
 </div>
 </body>
 </html>
