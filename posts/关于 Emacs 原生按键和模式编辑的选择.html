@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-26 Wed 16:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>关于 Emacs 原生按键和模式编辑的选择</title>
+<meta name="author" content="Jousimies" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+         <script src="js/copy.js"></script> 
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">关于 Emacs 原生按键和模式编辑的选择</h1>
+<p>
+使用 Emacs 的人我想大部份都听说过原生按键模式和模式编辑模式。Emacs 中的原生按键模式需要组合使用功能键和字母键，比如 C-a 去行首，C-e 去行尾，MacOS 默认也支持 Emacs 式的原生按键模式。而模式编辑则是以 Vim 为代表的文本编辑方法，当然在 Emacs 中还有其他的模式编辑支持如，God、Meow、Xah-fly-key 等等。
+</p>
+
+<p>
+我在使用 Emacs 之前，使用的是 VIM。模式编辑是高效的，当我开始使用 Emacs 时，自然想要 VIM 式的编辑方式。Emacs 中有这样的实现，那就是 Evil 。
+</p>
+
+<p>
+Evil 很好用，也有很多的使用用户。但是 Evil 自己也有很多的问题，如在每一个模式下都要进行相应的按键绑定，有些行为没有默认的 Emacs 方式好用。当我使痛苦使用 Evil 时， emacs-china 社区出现了一种新的模式编辑 Meow。Meow 充分利用了Emacs 的原有按键绑定，将组合按键序列化，可以更大化的利用 Emacs 原有的设施。
+</p>
+
+<p>
+回想自己的 Emacs 使用过程，我很少使用 Emacs 的默认按键绑定。在使用了很长时间的模式编辑后，我也在考虑自己是否需要模式编辑。自己为什么没有去尝试 Emacs 的绑定呢？自己为什么现在又想使用 Emacs 的默认绑定呢？最后还是决定给自己一次新的尝试机会，将模式编辑删除，取而代之的是使用 Emacs 式的默认按键绑定。
+</p>
+
+<p>
+最开始很不习惯原生控键方式，会经常想要按 i 进入 insert 模式，按 <code>Esc</code> 退出按键模式。会想要使用 j k 进行上下的移动光标。原本使用模式编辑可以很方便的选择文本，而使用原生按键就显的不太方便。
+</p>
+
+<p>
+使用了一天下来，对于使用原生按键慢慢习惯了。切换编辑模式会有一段不适应期，但是适应后是没有问题的。在短暂的使用两天后决定继续使用，看看自己后期会有什么其他的想法。
+</p>
+
+<p>
+目前己经使用原生按键绑定己有两天，还是有些问题的。比如原来习惯的使用 q 退出某个 buffer，如果 buffer 是可编辑的就会变成了打字。好的地方就是不会时不时的去按 ESC 键了，在不同的模式之间切换有时候还是很烦的。原来觉得使用 Emacs 式的按键会感觉到很不舒服，序列化的操作会好一些。总体上是原生按键也可以接受。
+</p>
+
+<p>
+模式编辑的方式按键更快吗？应该是的，这不可否认，但是实际使用的时候，打字更多，这个时候模式编辑的这一套没见的有多高效。
+</p>
+
+<p>
+2022-06-12 不可否认的是 Emacs 的键用起来还是可以的，但是由于我的小指力量有些弱，我怕长此以往会导致自己也患上 RSI。这个感觉很不好。此外就是看了陈滨的写的关于 Emacs 按键绑定的资询，VIM 在文本操控方面还是有自己的得到之处，不然也不会和 Emacs 有如此之长的圣战。
+</p>
+
+<p>
+此外说说关于 Emacs 和 Meow 这两种方式的体验。使用 Emacs 的按键那么可以获得原生的体验，在各个包的层面都有统一的体验，问题在于移动的时候如果 <code>ctrl</code> 没有按好，那么移动就会变成输入，这个体验很差。 Meow 的问题是其有自己的按键绑定，离开了 Emacs 这种方式就没有了用武之地，当需要跨电脑使用时，会很难受，为了在多个软件中有一致的使用体验，还是给 Evil 一次机会。
+</p>
+
+<p>
+使用 Evil 就不能追新的软件包，因为有可能这个包没有实现 Evil 的控键绑定，就需要自己进行按键的设置。另一个角度想这个问题，当配置稳定下来之后，使用 Evil 带来的问题变得很小。
+</p>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.4) on MacOS</span>
+ <span class="updated">Updated: 2023-04-26 Wed 16:20</span> </div>
+</div>
+</body>
+</html>
