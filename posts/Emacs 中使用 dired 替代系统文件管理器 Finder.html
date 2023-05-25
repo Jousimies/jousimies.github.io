@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-05-24 Wed 22:09 -->
+<!-- 2023-05-25 Thu 10:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs 中使用 dired 替代系统文件管理器 Finder</title>
@@ -29,7 +29,14 @@
 <li><a href="#org992d667">2. 删</a></li>
 <li><a href="#org1423d54">3. 改</a></li>
 <li><a href="#org6a9f6f2">4. 查</a></li>
-<li><a href="#orgcc7fabf">5. 其他</a></li>
+<li><a href="#org5ddae6e">5. 其他</a>
+<ul>
+<li><a href="#org562494c">5.1. 文件打开与编辑</a></li>
+<li><a href="#orga30dcbb">5.2. 文件预览</a></li>
+<li><a href="#org07c1a89">5.3. 使用系统文件管理器打开文件夹</a></li>
+</ul>
+</li>
+<li><a href="#org22a804b">6. 注意</a></li>
 </ul>
 </div>
 </div>
@@ -58,7 +65,7 @@ Finder 会在文件夹中自动创建 .DS<sub>Store</sub> 文件，而且没法�
 </p>
 
 <p>
-在 Emacs 中使用 Dired 可以使用 +（dired-create-directory）号来创建新的文件夹，使用 dired-create-empty-file 来创建空白的纯文本的文件如 .md .org .py 等等，富文本的文件还是需要打开相应的软件创建。
+在 Emacs 中使用 Dired 可以使用 +（dired-create-directory）号来创建新的文件夹，使用 dired-create-empty-file 来创建空白的纯文本的文件如 .md .org .py 等等，富文本的文件还是需要打开相应的软件创建。 dired-create-empty-file 这个命令没有快捷键，是因为可以使用 find-file 来代替，我平常使用都是 gf（find-file-at-point）然后输入文件名及后缀来新建及打开文件，接着编辑就可以。
 </p>
 
 <p>
@@ -138,9 +145,52 @@ org-roam 是 zettelkasten 笔记法在 Emacs 中的实现，类似于 roam 和 o
 </div>
 </div>
 
-<div id="outline-container-orgcc7fabf" class="outline-2">
-<h2 id="orgcc7fabf"><span class="section-number-2">5.</span> 其他</h2>
+<div id="outline-container-org5ddae6e" class="outline-2">
+<h2 id="org5ddae6e"><span class="section-number-2">5.</span> 其他</h2>
 <div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org562494c" class="outline-3">
+<h3 id="org562494c"><span class="section-number-3">5.1.</span> 文件打开与编辑</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+当使用 dired 打开了某个文件夹，对于纯文本文件（org/md/txt/tex等等），直接回车使用 Emacs 进行编辑。对于富文本文件(docx/ppt/excel)，回车会默认解压此类文件，可以使用 W （browse-url-of-dired-file）来使用系统默认的软件打开文件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga30dcbb" class="outline-3">
+<h3 id="orga30dcbb"><span class="section-number-3">5.2.</span> 文件预览</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Finder 有个很好用的功能是在某些文件上按空格可以直接使用 preview 对文件进行预览。Emacs 中可以使用 dirvish 替代 dired 使用，我是使用 p（dired-preview） 调用 Mac 系统中的 qlmanage 来进行预览。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">defun</span> <span style="color: #721045;">dired-preview</span> <span style="color: #dd22dd;">()</span>
+  <span style="color: #2a5045; font-style: italic;">"Quick look the current file in macOS."</span>
+  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">interactive</span><span style="color: #dd22dd;">)</span>
+  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">let*</span> <span style="color: #008899;">(</span><span style="color: #972500;">(</span>file <span style="color: #808000;">(</span>dired-get-filename<span style="color: #808000;">)</span><span style="color: #972500;">)</span><span style="color: #008899;">)</span>
+    <span style="color: #008899;">(</span><span style="color: #531ab6; font-weight: bold;">if</span> <span style="color: #972500;">(</span>eq system-type 'darwin<span style="color: #972500;">)</span>
+        <span style="color: #972500;">(</span>call-process-shell-command <span style="color: #808000;">(</span>concat <span style="color: #3548cf;">"qlmanage -p "</span> <span style="color: #531ab6;">(</span>shell-quote-argument file<span style="color: #531ab6;">)</span><span style="color: #808000;">)</span> nil nil<span style="color: #972500;">)</span>
+      <span style="color: #972500;">(</span>message <span style="color: #3548cf;">"Not supported on this platform."</span><span style="color: #972500;">)</span><span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07c1a89" class="outline-3">
+<h3 id="org07c1a89"><span class="section-number-3">5.3.</span> 使用系统文件管理器打开文件夹</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+我是使用了李杀写的函数，xah-show-in-desktop，绑定到了按键 e 上。使用的时候按 e 就会使用在 Finder 中显示当前文件。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org22a804b" class="outline-2">
+<h2 id="org22a804b"><span class="section-number-2">6.</span> 注意</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 以上我只是写了我怎么使用 dired 管理我的文件及文件夹，但是没有给出详细的步骤及过程。文本的内容很难完全的展示其便利性及高效性，视频展示会是一个比较好的方式，但是目前没有这方面的计划。
 </p>
@@ -148,12 +198,16 @@ org-roam 是 zettelkasten 笔记法在 Emacs 中的实现，类似于 roam 和 o
 <p>
 当你需要某方面的功能，可以直接查看 dired 的手册。
 </p>
+
+<p>
+org-attach 是另一个话题了，有时间再写我怎么使用 org-attach 管理我的文件的。
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
- <span class="updated">Updated: 2023-05-24 Wed 22:09</span> </div>
+ <span class="updated">Updated: 2023-05-25 Thu 10:50</span> </div>
 </div>
 </body>
 </html>
