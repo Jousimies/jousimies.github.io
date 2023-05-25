@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-05-24 Wed 22:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs 中使用 dired 替代系统文件管理器 Finder</title>
+<meta name="author" content="Jousimies" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+         <script src="js/copy.js"></script> 
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">Emacs 中使用 dired 替代系统文件管理器 Finder</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4b3007d">1. 增</a></li>
+<li><a href="#org992d667">2. 删</a></li>
+<li><a href="#org1423d54">3. 改</a></li>
+<li><a href="#org6a9f6f2">4. 查</a></li>
+<li><a href="#orgcc7fabf">5. 其他</a></li>
+</ul>
+</div>
+</div>
+<p>
+知乎上有很多的人吐嘈 Mac 系统的文件管理器 Finder 很难用，我个人也不喜欢使用 Finder，是能不用就不用。
+</p>
+
+<p>
+Finder 会在文件夹中自动创建 .DS<sub>Store</sub> 文件，而且没法关闭。这个行为简直不能忍受。我会使用下面的命令来删除此文件。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">find . -name <span style="color: #3548cf;">".DS_Store"</span> -print -delete
+</pre>
+</div>
+
+<p>
+大部份情况下我使用 Emacs 中的 Dired 管理文件。下面简单说说使用体验。文件管理器的主要作用就是增删改查。
+</p>
+
+<div id="outline-container-org4b3007d" class="outline-2">
+<h2 id="org4b3007d"><span class="section-number-2">1.</span> 增</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+文件中的增可以是新建文件夹或者新建一个文件。在 Finder 中不支持创建指定格式的文件，如 docx，Win 中可以直接右键创建。这两者也就是个使用习惯的问题，毕竟创建了空白的文件还是需要打开对应的软件来进行编辑，相反如果先打开软件则可以创建带模板的新文件。
+</p>
+
+<p>
+在 Emacs 中使用 Dired 可以使用 +（dired-create-directory）号来创建新的文件夹，使用 dired-create-empty-file 来创建空白的纯文本的文件如 .md .org .py 等等，富文本的文件还是需要打开相应的软件创建。
+</p>
+
+<p>
+增加也可能是从其他的文件夹中复制或移动文件到当前文件夹当中。在 Finder 或 Explorer 中需要先进入到源文件夹当中选择需要复制或移动的文件，然后打开目标文件夹，粘贴文件。Finder 和 Win11 中的 Explorer 支持文件夹的标签页管理。
+</p>
+
+<p>
+在 Emacs 中我会开两个并列的 Buffer，左边是 source 文件夹，右边是 target 文件夹。在 source 文件夹中，使用 m（dired-mark） 标记欲复制或移动的文件，然后使用 C（dired-do-copy）复制文件或使用 R（dired-do-rename）来移动文件。
+</p>
+
+<p>
+对于欲复制的文件或者文件夹怎么选取呢？数量比较少可以使用 m 标记文件，移动到下一个文件继续标记，直到标记完所有的文件。对于具有一定模式的文件，比如文件名都有 foo ，可以使用 %m 然后输入 foo 来标记文件名含有 foo 的文件。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">% &amp;             dired-flag-garbage-files
+% C             dired-do-copy-regexp <span style="color: #595959; font-style: italic;"># </span><span style="color: #595959; font-style: italic;">&#22797;&#21046;&#31526;&#21512;&#27491;&#21017;&#30340;&#25991;&#20214;</span>
+% H             dired-do-hardlink-regexp
+% R             dired-do-rename-regexp <span style="color: #595959; font-style: italic;"># </span><span style="color: #595959; font-style: italic;">&#37325;&#21629;&#21517;&#31526;&#21512;&#27491;&#21017;&#30340;&#25991;&#20214;</span>
+% S             dired-do-symlink-regexp
+% Y             dired-do-relsymlink-regexp
+% d             dired-flag-files-regexp
+% g             dired-mark-files-containing-regexp <span style="color: #595959; font-style: italic;"># </span><span style="color: #595959; font-style: italic;">&#26631;&#35760;&#25991;&#20214;&#20869;&#23481;&#20013;&#31526;&#21512;&#27491;&#21017;&#34920;&#36798;&#24335;&#30340;&#25991;&#20214;&#65292;&#32431;&#25991;&#26412;&#25991;&#20214;</span>
+% l             dired-downcase <span style="color: #595959; font-style: italic;">#</span><span style="color: #595959; font-style: italic;">&#25991;&#20214;&#21517;&#26368;&#23567;&#21270;&#65292;&#33521;&#25991;&#25991;&#20214;&#21517;</span>
+% m             dired-mark-files-regexp
+% r             dired-do-rename-regexp
+% u             dired-upcase    <span style="color: #595959; font-style: italic;"># </span><span style="color: #595959; font-style: italic;">&#25991;&#20214;&#21517;&#26368;&#22823;&#21270;&#65292;&#33521;&#25991;&#25991;&#20214;&#21517;</span>
+</pre>
+</div>
+
+<p>
+其他的支持的如上，如通过正则标记文件，或者通过检索内容来标记文件，都是一些比较方便的技巧。不一定会用的上，但是知道了，用上的时候就很方便。我使用 Emacs 来管理我的笔记，我对于笔记的要求就是纯文本，不喜欢富文本也不推荐使用他们来管理笔记文件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org992d667" class="outline-2">
+<h2 id="org992d667"><span class="section-number-2">2.</span> 删</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+对于删除文件，同样的可以先标记（m）欲删除的文件，然后使用 D（dired-do-delete）来删除文件，也可以直接使用 D 来标记，然后使用 X 执行删除文件操作。先标记再删除就可以使用上一节中标记文件的方法进行。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1423d54" class="outline-2">
+<h2 id="org1423d54"><span class="section-number-2">3.</span> 改</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+对于单一的文件改名，可以直接使用 R 进行。如果只开一个 buffer 那么修改后的文件依然处于当前文件夹中，如果开两个并列的 buffer 那么修改后的文件会从源文件夹中移动到目标文件夹中，源文件夹中的文件依然会被保留。这个行为就是复制文件夹到其他文件夹中并修改文件名的操作。
+</p>
+
+<p>
+对于需要批量修改文件名，比如在文件名的最前面加上一个日期，可以使用 C-x C-q 开启 wdired-mode, 然后使用列编辑在文件名的前方加上统一的日期。而不需要一个个的去修改文件。这个模式修改文件名在 win 中使用 powertoy 也可以实现。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6a9f6f2" class="outline-2">
+<h2 id="org6a9f6f2"><span class="section-number-2">4.</span> 查</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+我认为需要查找的文件或者文件夹是会需要一定的上下文的。没有上下文的文件，时间久了之后就会被遗忘，成为信息的孤岛。当前我使用 org-attach 管理文件，上下文信息使用 org-roam 进行。
+</p>
+
+<p>
+org-roam 是 zettelkasten 笔记法在 Emacs 中的实现，类似于 roam 和 obsidian。
+</p>
+
+<p>
+我目前使用 org-roam 进行项目的管理，当我收到一个文件或者需要创建项目相关的事项，会在 org-roam 中创建一个新的节点，然后使用 org-attach 来保存文件。在 org-roam 中的节点下我会保留一些相关的笔记，这样这可以基于上下文来查找特定的文件。
+</p>
+
+<p>
+当没有相关的上下文或者直接想要搜索相关的文件时，就需要进行模糊搜索。我使用 SPC s f (consult-find) 来查找文件名，或者 C-u SPC s f 来指定需要查找指定的文件夹下的内容。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcc7fabf" class="outline-2">
+<h2 id="orgcc7fabf"><span class="section-number-2">5.</span> 其他</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+以上我只是写了我怎么使用 dired 管理我的文件及文件夹，但是没有给出详细的步骤及过程。文本的内容很难完全的展示其便利性及高效性，视频展示会是一个比较好的方式，但是目前没有这方面的计划。
+</p>
+
+<p>
+当你需要某方面的功能，可以直接查看 dired 的手册。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
+ <span class="updated">Updated: 2023-05-24 Wed 22:09</span> </div>
+</div>
+</body>
+</html>
