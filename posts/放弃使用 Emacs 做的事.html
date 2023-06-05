@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-06-05 Mon 17:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>放弃使用 Emacs 做的事</title>
+<meta name="author" content="Jousimies" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+         <script src="js/copy.js"></script> 
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">放弃使用 Emacs 做的事</h1>
+<p>
+这个是 emacs-china 社区中的一个<a href="https://emacs-china.org/t/emacs/23849">话题</a>。
+</p>
+
+<p>
+Emacs 被称为伪装成编辑器的操作系统，皆因为 Emacs 具有太多强大的功能，你可以使用它管理邮件、笔记、任务、听音乐等等。今天我来聊聊我放弃使用 Emacs 做的几件事。
+</p>
+
+<p>
+在说放弃的项目前，先说下我的设备。我的主力机器是 Macbook Air M1，手机是 iPhone 14，一台 Win11 台式机和一台基于 Openmediavault 的 NAS 系统。换 iPhone 之前我使用的是 Huawei mate20，得益于 Mac 和 iPhone 协同工作带来的改变，使得我放弃了使用 Emacs 做以下几项事情。
+</p>
+
+<p>
+虽然我也会编写一点脚本处理日常任务，但是我不是专业的程序员，所以编程不是我关注的重点。
+</p>
+
+<ol class="org-ol">
+<li>放弃使用 ekg 和 Nextcloud 笔记管理临时笔记
+我在 NAS 中自建了 Nextcloud 云用于多端文件的同步。在使用安卓手机时，Nextcloud 笔记是我主要的临时笔记去处。当我使用手机阅读时，会将关心的内容发送到 Nextcloud 笔记中临时保存，当我使用电脑时再用 Emacs 打开该临时文件进行进一步的阅读和处理。当我在使用电脑阅读网页时我会用 ekg 临时保存笔记，等到空闲时再进一步的处理，整理到永久笔记当中。
+手机换了之后，我不再需要使用 Nextcloud 笔记，苹果系统自带的备忘录通过 icloud 可以很方便的自动同步。放弃 EKG 也是同样的原因，使用备忘录进行简单的记录，因为都要做后期的整理，笔记格式不重要，保存文件及相关的链接即可。
+皆因协同办公带来的改变，华为的产品或者小米的产品都可以做到。放弃使用 Emacs 做这些还是因为 Emacs 在电脑端强大，移动端就不是很好。</li>
+
+<li>放弃使用 elfeed 进行 RSS 的管理和阅读
+我使用了很久的 elfeed, 使用体验也很好。放弃是因为使用手机进行是一个更好的选择，谁空闲的时候不会刷下手机呢，与其看短视频不如用来看看关注的 RSS。
+Read it later 类的软件有很多。苹果系统上我目前使用 NetNewsWire 管理 RSS 源。阅读的时候遇到关心的或者需要进一步处理的会将其分享到 Safari 的阅读列表当中，当用电脑处理的时候打开阅读列表即可。Safari 的阅读列表与其他 Read it later 类的软件相比差距很大，但是高级功能我用的不多，阅读列表简单够用足以。</li>
+
+<li>放弃使用 mu4e 管理邮件
+第一点，目前我不太需要通过邮件处理工作事务，第二点，我原先就使用手机自带的邮件软件处理。Mu4e 可以使用，但是用处不大，可有可无，也没有太多的邮件需要进一步的整理到笔记当中或者项目文件当中。所以放弃使用它问题不大。</li>
+
+<li>放弃使用 org-agenda 管理任务
+这一点改变是最大的。苹果的日历和提醒事项两个 APP 协同可以处理大多数的任务。日历用于处理固定日期的事项，提醒事项用于处理其他任务，如基于地点的任务、重复类型的任务。电脑和手机协同工作，都会提示我任务情况，无缝衔接，而使用 Emacs 管理任务需要我主动的去检查 org-agenda 列表。
+Emacs 管理任务的另一点是可以记录进行某一项任务所花费的时间，对于这一点有要求的人可以使用。我个人长久使用之后，感觉没有太大的要求，目前我仍然记录时间的就是读书记录。读一本书的时候会主动的创建一个文学笔记，然后在其中分建一个 TODO 任务，当我读书的时候会我记录阅读的时间。一年下来使用 org 提供的功能，更新阅读列表，显示我今年读了哪些书，分别用了多长的时间。</li>
+
+<li>放弃使用 Emacs 听音乐
+本身我听音乐就比较少，偶尔听听。此外，当前音乐版权导致听音乐要收费，华为自带的音乐就要收费才能听，苹果的也是如此，并不能想听就能听，给你听个1分钟。我用的少，也不太想为此交费。放弃使用 Emacs 听音乐，主要还是因为需求不高。</li>
+</ol>
+
+<p>
+Emacs 太强大。最更始使用 Emacs 想要把日常的功能都塞进去，现在熟悉之后想要给它精减精减，有种把书读后再读薄的感觉。
+</p>
+
+<p>
+Give up doing everything within Emacs. Emacs 于我最重要的作用就是编辑和管理笔记，我使用 denote 管理永久笔记、org-roam 管理项目笔记及文件。
+</p>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
+ <span class="updated">Updated: 2023-05-26 Fri 10:54</span> </div>
+</div>
+</body>
+</html>
