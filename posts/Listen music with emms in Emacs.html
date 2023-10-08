@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-05 Mon 17:01 -->
+<!-- 2023-09-19 Tue 10:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Listen music with emms in Emacs</title>
@@ -26,7 +26,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6f83ea1">1. 使用基本流程如下：</a></li>
+<li><a href="#org7647388">1. 使用基本流程如下：</a></li>
 </ul>
 </div>
 </div>
@@ -46,82 +46,82 @@ Emacs 再一次展现了其强大的功能，播放音乐不在话下。
 Emms 的配置如下，使用了三个插件，emms lyrics-fetcher 和 consult-emms.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms</span>
-  <span style="color: #8f0075; font-weight: bold;">:bind</span> <span style="color: #dd22dd;">(</span><span style="color: #008899;">(</span><span style="color: #3548cf;">"&lt;f5&gt;"</span> . emms<span style="color: #008899;">)</span>
-         <span style="color: #008899;">(</span><span style="color: #3548cf;">"C-&lt;f5&gt;"</span> . my/toggle-emms<span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span>
-  <span style="color: #8f0075; font-weight: bold;">:config</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-directory <span style="color: #008899;">(</span>expand-file-name <span style="color: #3548cf;">"cache/emms"</span> user-emacs-directory<span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-player-list '<span style="color: #008899;">(</span>emms-player-mpv<span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-browser-covers #'emms-browser-cache-thumbnail-async<span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-playlist-buffer-name <span style="color: #3548cf;">"*Music*"</span><span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span>add-to-list 'display-buffer-alist '<span style="color: #008899;">(</span><span style="color: #972500;">(</span><span style="color: #531ab6; font-weight: bold;">or</span> <span style="color: #808000;">(</span>derived-mode . emms-playlist-mode<span style="color: #808000;">)</span>
-                                           <span style="color: #808000;">(</span>derived-mode . emms-browser-mode<span style="color: #808000;">)</span><span style="color: #972500;">)</span>
-                                       <span style="color: #972500;">(</span>display-buffer-in-tab<span style="color: #972500;">)</span>
-                                       <span style="color: #972500;">(</span>tab-name <span style="color: #3548cf;">"Media"</span><span style="color: #972500;">)</span> <span style="color: #972500;">(</span>tab-group <span style="color: #3548cf;">"Media"</span><span style="color: #972500;">)</span><span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span>
+<pre class="src src-emacs-lisp">(use-package emms
+  :bind (("&lt;f5&gt;" . emms)
+         ("C-&lt;f5&gt;" . my/toggle-emms))
+  :config
+  (setq emms-directory (expand-file-name "cache/emms" user-emacs-directory))
+  (setq emms-player-list '(emms-player-mpv))
+  (setq emms-browser-covers #'emms-browser-cache-thumbnail-async)
+  (setq emms-playlist-buffer-name "*Music*")
+  (add-to-list 'display-buffer-alist '((or (derived-mode . emms-playlist-mode)
+                                           (derived-mode . emms-browser-mode))
+                                       (display-buffer-in-tab)
+                                       (tab-name "Media") (tab-group "Media")))
 
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">defun</span> <span style="color: #721045;">my/toggle-emms</span> <span style="color: #008899;">(</span>arg<span style="color: #008899;">)</span>
-    <span style="color: #2a5045; font-style: italic;">"Toggle Emms playback: start if stopped, stop if playing.</span>
-<span style="color: #2a5045; font-style: italic;">With universal argument (C-u), pause playback instead of stopping."</span>
-    <span style="color: #008899;">(</span><span style="color: #531ab6; font-weight: bold;">interactive</span> <span style="color: #3548cf;">"P"</span><span style="color: #008899;">)</span>
-    <span style="color: #008899;">(</span><span style="color: #531ab6; font-weight: bold;">if</span> emms-player-playing-p
-        <span style="color: #972500;">(</span><span style="color: #531ab6; font-weight: bold;">if</span> arg
-            <span style="color: #808000;">(</span>emms-stop<span style="color: #808000;">)</span>
-          <span style="color: #808000;">(</span>emms-pause<span style="color: #808000;">)</span><span style="color: #972500;">)</span>
-      <span style="color: #972500;">(</span>emms-start<span style="color: #972500;">)</span><span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+  (defun my/toggle-emms (arg)
+    "Toggle Emms playback: start if stopped, stop if playing.
+With universal argument (C-u), pause playback instead of stopping."
+    (interactive "P")
+    (if emms-player-playing-p
+        (if arg
+            (emms-stop)
+          (emms-pause))
+      (emms-start))))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms-playlist-mode</span>
-  <span style="color: #8f0075; font-weight: bold;">:after</span> emms
-  <span style="color: #8f0075; font-weight: bold;">:config</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-playlist-mode-center-when-go t<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+(use-package emms-playlist-mode
+  :after emms
+  :config
+  (setq emms-playlist-mode-center-when-go t))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms-source-file</span>
-  <span style="color: #8f0075; font-weight: bold;">:after</span> emms
-  <span style="color: #8f0075; font-weight: bold;">:config</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-source-playlist-default-format 'native<span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-source-playlist-ask-before-overwrite nil<span style="color: #dd22dd;">)</span>
+(use-package emms-source-file
+  :after emms
+  :config
+  (setq emms-source-playlist-default-format 'native)
+  (setq emms-source-playlist-ask-before-overwrite nil)
 
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-source-file-default-directory <span style="color: #008899;">(</span>expand-file-name <span style="color: #3548cf;">"~/Music/"</span><span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+  (setq emms-source-file-default-directory (expand-file-name "~/Music/")))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms-history</span>
-  <span style="color: #8f0075; font-weight: bold;">:hook</span> <span style="color: #dd22dd;">(</span><span style="color: #008899;">(</span>emms-browser-show-display . emms-history-load<span style="color: #008899;">)</span>
-         <span style="color: #008899;">(</span>emms-browser-hide-display . emms-history-save<span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+(use-package emms-history
+  :hook ((emms-browser-show-display . emms-history-load)
+         (emms-browser-hide-display . emms-history-save)))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms-setup</span>
-  <span style="color: #8f0075; font-weight: bold;">:after</span> emms
-  <span style="color: #8f0075; font-weight: bold;">:config</span>
-  <span style="color: #dd22dd;">(</span>emms-all<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+(use-package emms-setup
+  :after emms
+  :config
+  (emms-all))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms-browser</span>
-  <span style="color: #8f0075; font-weight: bold;">:after</span> emms
-  <span style="color: #8f0075; font-weight: bold;">:config</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-browser-thumbnail-small-size 64<span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> emms-browser-thumbnail-medium-size 128<span style="color: #dd22dd;">)</span>
+(use-package emms-browser
+  :after emms
+  :config
+  (setq emms-browser-thumbnail-small-size 64)
+  (setq emms-browser-thumbnail-medium-size 128)
 
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">evil-define-key</span> 'normal emms-browser-mode-map
-    <span style="color: #3548cf;">"gb"</span> nil<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+  (evil-define-key 'normal emms-browser-mode-map
+    "gb" nil))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">emms-lyrics</span>
-  <span style="color: #8f0075; font-weight: bold;">:hook</span> <span style="color: #dd22dd;">(</span>emms-player-started-hook . emms-lyrics-toggle-display-on-modeline<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+(use-package emms-lyrics
+  :hook (emms-player-started-hook . emms-lyrics-toggle-display-on-modeline))
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">lyrics-fetcher</span>
-  <span style="color: #8f0075; font-weight: bold;">:after</span> <span style="color: #dd22dd;">(</span>emms<span style="color: #dd22dd;">)</span>
-  <span style="color: #8f0075; font-weight: bold;">:config</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">setq</span> lyrics-fetcher-genius-access-token
-        <span style="color: #008899;">(</span>auth-source-pick-first-password <span style="color: #8f0075; font-weight: bold;">:host</span> <span style="color: #3548cf;">"genius.com"</span> <span style="color: #8f0075; font-weight: bold;">:user</span> <span style="color: #3548cf;">"ID"</span><span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span>lyrics-fetcher-use-backend 'neteasecloud<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+<pre class="src src-emacs-lisp">(use-package lyrics-fetcher
+  :after (emms)
+  :config
+  (setq lyrics-fetcher-genius-access-token
+        (auth-source-pick-first-password :host "genius.com" :user "ID"))
+  (lyrics-fetcher-use-backend 'neteasecloud))
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">use-package</span> <span style="color: #0000b0;">consult-emms</span>
-  <span style="color: #8f0075; font-weight: bold;">:bind</span> <span style="color: #dd22dd;">(</span><span style="color: #3548cf;">"M-&lt;f5&gt;"</span> . consult-emms-library<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+<pre class="src src-emacs-lisp">(use-package consult-emms
+  :bind ("M-&lt;f5&gt;" . consult-emms-library))
 </pre>
 </div>
 
-<div id="outline-container-org6f83ea1" class="outline-2">
-<h2 id="org6f83ea1"><span class="section-number-2">1.</span> 使用基本流程如下：</h2>
+<div id="outline-container-org7647388" class="outline-2">
+<h2 id="org7647388"><span class="section-number-2">1.</span> 使用基本流程如下：</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><code>f5</code> 调用 <code>emms</code> ，回车即可。
@@ -136,7 +136,7 @@ Emms 的配置如下，使用了三个插件，emms lyrics-fetcher 和 consult-e
 </div>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
  <span class="updated">Updated: 2023-04-19 Wed 10:38</span> </div>
 </div>
 </body>

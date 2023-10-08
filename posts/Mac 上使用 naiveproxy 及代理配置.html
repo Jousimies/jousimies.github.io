@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-05 Mon 17:01 -->
+<!-- 2023-09-19 Tue 10:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mac 上使用 naiveproxy 及代理配置</title>
@@ -29,7 +29,7 @@ Naiveproxy 是一种科学上网方式，但是其没有合适的客户端可用
 如果不使用 qv2ray，那只能使用 Terminal 开启以下的命令来进行科学上网。
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8f0075; font-weight: bold;">cd</span> ~/naive
+<pre class="src src-bash">cd ~/naive
 ./naive config.json
 </pre>
 </div>
@@ -47,7 +47,7 @@ Naiveproxy 是一种科学上网方式，但是其没有合适的客户端可用
 </p>
 
 
-<div id="orgcf3732b" class="figure">
+<div id="orgf426ca8" class="figure">
 <p><img src="../static/20230215110837screenshot.png" alt="20230215110837screenshot.png" width="600px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Proxies 设置界面</p>
@@ -103,8 +103,8 @@ Load failed: 37: Operation already in progress
 需要在终端中执行：
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">http_proxy</span>=<span style="color: #3548cf;">'http://localhost:8118'</span>
-<span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">https_proxy</span>=<span style="color: #3548cf;">'http://localhost:8118'</span>
+<pre class="src src-bash">export http_proxy='http://localhost:8118'
+export https_proxy='http://localhost:8118'
 </pre>
 </div>
 
@@ -112,8 +112,8 @@ Load failed: 37: Operation already in progress
 若要取消使用终端代理：
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8f0075; font-weight: bold;">unset</span> http_proxy
-<span style="color: #8f0075; font-weight: bold;">unset</span> https_proxy
+<pre class="src src-bash">unset http_proxy
+unset https_proxy
 </pre>
 </div>
 
@@ -121,22 +121,22 @@ Load failed: 37: Operation already in progress
 或者可以使用下面的设置，更方便一些：
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #595959; font-style: italic;"># </span><span style="color: #595959; font-style: italic;">proxy on</span>
-<span style="color: #721045;">proxy</span> <span style="color: #000000;">()</span> <span style="color: #000000;">{</span>
-    <span style="color: #8f0075; font-weight: bold;">echo</span> <span style="color: #3548cf;">"start use privoxy proxy"</span>
+<pre class="src src-bash"># proxy on
+proxy () {
+    echo "start use privoxy proxy"
     brew services start privoxy
-    <span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">no_proxy</span>=localhost,127.0.0.0,127.0.0.1,127.0.1.1,local.home
-    <span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">http_proxy</span>=http://localhost:8118
-    <span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">https_proxy</span>=http://localhost:8118
-<span style="color: #000000;">}</span>
+    export no_proxy=localhost,127.0.0.0,127.0.0.1,127.0.1.1,local.home
+    export http_proxy=http://localhost:8118
+    export https_proxy=http://localhost:8118
+}
 
-<span style="color: #595959; font-style: italic;"># </span><span style="color: #595959; font-style: italic;">no privoxy</span>
-<span style="color: #721045;">noproxy</span> <span style="color: #000000;">()</span> <span style="color: #000000;">{</span>
-    <span style="color: #8f0075; font-weight: bold;">echo</span> <span style="color: #3548cf;">"stop use privoxy proxy"</span>
+# no privoxy
+noproxy () {
+    echo "stop use privoxy proxy"
     brew services stop privoxy
-    <span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">http_proxy</span>=
-    <span style="color: #8f0075; font-weight: bold;">export</span> <span style="color: #005e8b;">https_proxy</span>=
-<span style="color: #000000;">}</span>
+    export http_proxy=
+    export https_proxy=
+}
 </pre>
 </div>
 
@@ -145,7 +145,7 @@ Load failed: 37: Operation already in progress
 </p>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
  <span class="updated">Updated: 2023-04-25 Tue 09:46</span> </div>
 </div>
 </body>

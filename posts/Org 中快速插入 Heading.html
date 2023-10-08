@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-05 Mon 17:01 -->
+<!-- 2023-09-19 Tue 10:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org 中快速插入 Heading</title>
@@ -42,20 +42,20 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">defun</span> <span style="color: #721045;">consult-outline-insert-heading</span> <span style="color: #dd22dd;">(</span>target<span style="color: #dd22dd;">)</span>
-  <span style="color: #dd22dd;">(</span><span style="color: #531ab6; font-weight: bold;">let*</span> <span style="color: #008899;">(</span><span style="color: #972500;">(</span>marker <span style="color: #808000;">(</span>plist-get
-                  <span style="color: #531ab6;">(</span>text-properties-at 0 target<span style="color: #531ab6;">)</span>
-                  'consult--candidate<span style="color: #808000;">)</span><span style="color: #972500;">)</span>
-         <span style="color: #972500;">(</span>headline-name <span style="color: #808000;">(</span>org-entry-get nil <span style="color: #3548cf;">"ITEM"</span><span style="color: #808000;">)</span><span style="color: #972500;">)</span><span style="color: #008899;">)</span>
-    <span style="color: #008899;">(</span>org-insert-link nil headline-name<span style="color: #008899;">)</span><span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+<pre class="src src-emacs-lisp">(defun consult-outline-insert-heading (target)
+  (let* ((marker (plist-get
+                  (text-properties-at 0 target)
+                  'consult--candidate))
+         (headline-name (org-entry-get nil "ITEM")))
+    (org-insert-link nil headline-name)))
 
-<span style="color: #000000;">(</span><span style="color: #531ab6; font-weight: bold;">with-eval-after-load</span> 'embark
-  <span style="color: #dd22dd;">(</span>define-key embark-general-map <span style="color: #008899;">(</span>kbd <span style="color: #3548cf;">"h"</span><span style="color: #008899;">)</span> #'consult-outline-insert-heading<span style="color: #dd22dd;">)</span><span style="color: #000000;">)</span>
+(with-eval-after-load 'embark
+  (define-key embark-general-map (kbd "h") #'consult-outline-insert-heading))
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
  <span class="updated">Updated: 2023-04-19 Wed 10:38</span> </div>
 </div>
 </body>

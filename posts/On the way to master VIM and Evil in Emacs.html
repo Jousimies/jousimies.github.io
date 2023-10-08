@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-05 Mon 17:01 -->
+<!-- 2023-09-19 Tue 10:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>On the way to master VIM and Evil in Emacs</title>
@@ -25,24 +25,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc1e4758">1. VIM 的基本语法</a>
+<li><a href="#org1f42366">1. VIM 的基本语法</a>
 <ul>
-<li><a href="#orgdab5ab1">1.1. 操作符</a></li>
+<li><a href="#org9bd2622">1.1. 操作符</a></li>
 </ul>
 </li>
-<li><a href="#org28141e1">2. 删除所有包括特定字符的行</a></li>
-<li><a href="#orga2ccf97">3. Visual model</a>
+<li><a href="#org88377f5">2. 移动</a>
 <ul>
-<li><a href="#orge44f867">3.1. 可视区域的选择</a></li>
-<li><a href="#org2663242">3.2. 可视区域跳转</a></li>
+<li><a href="#org8f77e5e">2.1. 行内移动</a></li>
+<li><a href="#org672c319">2.2. 行间移动</a></li>
+</ul>
+</li>
+<li><a href="#org4f1cd8c">3. 删除所有包括特定字符的行</a></li>
+<li><a href="#org0b23a34">4. Visual model</a>
+<ul>
+<li><a href="#orgf342c0c">4.1. 可视区域的选择</a></li>
+<li><a href="#org5dbb410">4.2. 可视区域跳转</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc1e4758" class="outline-2">
-<h2 id="orgc1e4758"><span class="section-number-2">1.</span> VIM 的基本语法</h2>
+<div id="outline-container-org1f42366" class="outline-2">
+<h2 id="org1f42366"><span class="section-number-2">1.</span> VIM 的基本语法</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>操作符 + 动作命令 = 操作</li>
@@ -51,8 +57,8 @@
 </div>
 
 
-<div id="outline-container-orgdab5ab1" class="outline-3">
-<h3 id="orgdab5ab1"><span class="section-number-3">1.1.</span> 操作符</h3>
+<div id="outline-container-org9bd2622" class="outline-3">
+<h3 id="org9bd2622"><span class="section-number-3">1.1.</span> 操作符</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 d: 删除符
@@ -66,9 +72,141 @@ y: 复制
 </div>
 </div>
 
-<div id="outline-container-org28141e1" class="outline-2">
-<h2 id="org28141e1"><span class="section-number-2">2.</span> 删除所有包括特定字符的行</h2>
+<div id="outline-container-org88377f5" class="outline-2">
+<h2 id="org88377f5"><span class="section-number-2">2.</span> 移动</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8f77e5e" class="outline-3">
+<h3 id="org8f77e5e"><span class="section-number-3">2.1.</span> 行内移动</h3>
+<div class="outline-text-3" id="text-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">向前一个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">向后一个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">移动到下一个单词的词首</td>
+</tr>
+
+<tr>
+<td class="org-left">W</td>
+<td class="org-left">移动到下一个单词的词首</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">移动到下一个单词的词尾</td>
+</tr>
+
+<tr>
+<td class="org-left">E</td>
+<td class="org-left">移动到下一个单词的词尾</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">find char 向后查找</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">反向查找</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">till char 查找字符的前一个位置</td>
+</tr>
+
+<tr>
+<td class="org-left">T</td>
+<td class="org-left">反向查找</td>
+</tr>
+
+<tr>
+<td class="org-left">0</td>
+<td class="org-left">行首/insert 下可以使用M-a</td>
+</tr>
+
+<tr>
+<td class="org-left">\$</td>
+<td class="org-left">行尾/insert 下使用M-e</td>
+</tr>
+
+<tr>
+<td class="org-left">\^</td>
+<td class="org-left">移动到第一个非空白字符</td>
+</tr>
+
+<tr>
+<td class="org-left">g_</td>
+<td class="org-left">移动到最后一个非空白字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org672c319" class="outline-3">
+<h3 id="org672c319"><span class="section-number-3">2.2.</span> 行间移动</h3>
+<div class="outline-text-3" id="text-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">j</td>
+<td class="org-left">向下一行</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">向上一行</td>
+</tr>
+
+<tr>
+<td class="org-left">gg</td>
+<td class="org-left">第一行</td>
+</tr>
+
+<tr>
+<td class="org-left">G</td>
+<td class="org-left">最后一行</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f1cd8c" class="outline-2">
+<h2 id="org4f1cd8c"><span class="section-number-2">3.</span> 删除所有包括特定字符的行</h2>
+<div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-bash">:%g/foo/d
 </pre>
@@ -84,13 +222,13 @@ y: 复制
 </div>
 </div>
 
-<div id="outline-container-orga2ccf97" class="outline-2">
-<h2 id="orga2ccf97"><span class="section-number-2">3.</span> Visual model</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org0b23a34" class="outline-2">
+<h2 id="org0b23a34"><span class="section-number-2">4.</span> Visual model</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orge44f867" class="outline-3">
-<h3 id="orge44f867"><span class="section-number-3">3.1.</span> 可视区域的选择</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgf342c0c" class="outline-3">
+<h3 id="orgf342c0c"><span class="section-number-3">4.1.</span> 可视区域的选择</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 在 Emacs 中将按键 <code>v</code> 绑定到 <code>er/expand-region</code> ，这样就可以通过 <code>v</code> 来扩展区域。
 </p>
@@ -101,9 +239,9 @@ y: 复制
 </div>
 </div>
 
-<div id="outline-container-org2663242" class="outline-3">
-<h3 id="org2663242"><span class="section-number-3">3.2.</span> 可视区域跳转</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org5dbb410" class="outline-3">
+<h3 id="org5dbb410"><span class="section-number-3">4.2.</span> 可视区域跳转</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 通过 <code>v</code> 选择区域后，可以使用 <code>o</code> 进行区域的开头和结尾进行跳转，这样可以方便的扩展视觉选择范围。
 </p>
@@ -112,8 +250,8 @@ y: 复制
 </div>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.6) on MacOS</span>
- <span class="updated">Updated: 2023-04-19 Wed 10:38</span> </div>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
+ <span class="updated">Updated: 2023-07-29 Sat 10:16</span> </div>
 </div>
 </body>
 </html>
