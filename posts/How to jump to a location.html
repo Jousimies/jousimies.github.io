@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-01-20 Sat 20:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to jump to a location</title>
+<meta name="author" content="Jousimies" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+         <script src="js/copy.js"></script> 
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" class="button">Home</a>
+               <a href="/posts/index.html" class="button">Posts</a>
+               <a href="/about.html" class="button">About</a>
+               <hr>
+</div>
+<div id="content" class="content">
+<h1 class="title">How to jump to a location</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1419083">1. 屏幕内跳转</a>
+<ul>
+<li><a href="#org53b7217">1.1. 屏幕范围内任意位置跳转</a></li>
+<li><a href="#org6a53884">1.2. 跳转到成对符号另一端</a></li>
+</ul>
+</li>
+<li><a href="#orgf4ed283">2. 文件内跳转</a>
+<ul>
+<li><a href="#org5bd7e9a">2.1. 向前搜索和向后搜索</a></li>
+</ul>
+</li>
+<li><a href="#org49662f3">3. 跨文件搜索</a></li>
+<li><a href="#org65e294c">4. 检索某个文件</a></li>
+<li><a href="#org4eee37a">5. 书签位置跳转</a></li>
+<li><a href="#org7fe120f">6. 笔记内容的检索</a></li>
+</ul>
+</div>
+</div>
+<p>
+本文的目的是介绍在 Emacs 中如何快速跳转到某个位置。
+</p>
+
+<div id="outline-container-org1419083" class="outline-2">
+<h2 id="org1419083"><span class="section-number-2">1.</span> 屏幕内跳转</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org53b7217" class="outline-3">
+<h3 id="org53b7217"><span class="section-number-3">1.1.</span> 屏幕范围内任意位置跳转</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+我使用 <code>ace-pinyin-jump-char-2</code> 命令，它的用法是提供两个字母或拼音首字母，它会标记出屏幕范围内对应的位置，如果仅有一个可能就跳转至该位置，如果多于一个，则给出提示，再通过按提示的字母进行精确跳转。
+</p>
+
+<p>
+需要用到的包有 <code>ace-pinyin</code>, <code>avy</code>, <code>pinyinlib</code> ，其中 <code>pinyinlib</code> 提供了对于中文拼音的支持。
+</p>
+</div>
+</div>
+<div id="outline-container-org6a53884" class="outline-3">
+<h3 id="org6a53884"><span class="section-number-3">1.2.</span> 跳转到成对符号另一端</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+当光标处于成对的符号的一端时，可以通过 <code>exchange-point-and-mark</code> 命令，这个是 Emacs 内置的函数，默认的键是 <code>C-x C-x</code> 。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4ed283" class="outline-2">
+<h2 id="orgf4ed283"><span class="section-number-2">2.</span> 文件内跳转</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org5bd7e9a" class="outline-3">
+<h3 id="org5bd7e9a"><span class="section-number-3">2.1.</span> 向前搜索和向后搜索</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+默认的向后搜索是 <code>C-s</code> ，向前搜索是 <code>C-r</code> 。这两个命令会跳转到指定的搜索内容上。
+</p>
+
+<p>
+也可以使用 <code>consult-line</code> 跳转到某一行上面。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org49662f3" class="outline-2">
+<h2 id="org49662f3"><span class="section-number-2">3.</span> 跨文件搜索</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+跨文件的搜索我使用 <code>rg.el</code> 插件，默认的按键是 <code>C-c s</code> ，调用 <code>rg-menu</code> 。我通常使用 <code>regexp</code> 这个选项。
+</p>
+</div>
+</div>
+<div id="outline-container-org65e294c" class="outline-2">
+<h2 id="org65e294c"><span class="section-number-2">4.</span> 检索某个文件</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+这个可以通过 <code>consult-find</code> 查找某个文件夹中存在的文件。我通常使用该命令查找 org attachment 文件。通过 <code>C-u</code> 前缀，可以指定需要查找的文件夹。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4eee37a" class="outline-2">
+<h2 id="org4eee37a"><span class="section-number-2">5.</span> 书签位置跳转</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+这个是 Emacs 自带的功能，通过 <code>C-x r m</code> 调用 <code>bookmark-set</code> 函数，将文件夹设置为 bookmark。
+</p>
+
+<p>
+设置成功之后，就可以使用 <code>C-x r j</code> 跳转到文件夹当中。
+</p>
+
+<p>
+除书签功能之处，也可以使用 register 功能跳转到某个文件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7fe120f" class="outline-2">
+<h2 id="org7fe120f"><span class="section-number-2">6.</span> 笔记内容的检索</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+我使用 denote 管理自己的笔记文件， denote 的文件命令具有一个强大的格式，可以通过时间，笔记名， tag 进行检索或排序。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.15) on MacOS</span>
+ <span class="updated">Updated: 2024-01-20 Sat 20:56</span> </div>
+</div>
+</body>
+</html>
