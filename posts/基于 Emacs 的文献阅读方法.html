@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2023-09-19 Tue 10:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2024-10-13 Sun 09:17 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>基于 Emacs 的文献阅读方法</title>
 <meta name="generator" content="Org Mode" />
@@ -19,20 +17,25 @@
                <hr>
 </div>
 <div id="content" class="content">
+<header>
 <h1 class="title">基于 Emacs 的文献阅读方法</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8c1f5ba">1. Zotero</a></li>
-<li><a href="#orgc949254">2. Emacs 中文献的管理</a></li>
-<li><a href="#org9bd7da8">3. PDF 阅读软件</a></li>
-<li><a href="#org8f39099">4. 文献阅读笔记</a></li>
-<li><a href="#orgd0f36c1">5. <span class="todo TODO">TODO</span> 基于 Emacs 的 latex 文献引用</a></li>
-<li><a href="#org28fa34f">6. 其他相关资源</a></li>
+<li><a href="#org47f8265">1. 文献收集</a></li>
+<li><a href="#org40a5363">2. 文献笔记</a></li>
+<li><a href="#org25fe277">3. 引用笔记</a></li>
+<li><a href="#orge4a23c7">4. Zotero</a></li>
+<li><a href="#org0e516ba">5. 文献引用</a></li>
+<li><a href="#org37e92f6">6. Emacs 中文献的管理</a></li>
+<li><a href="#org7bc4100">7. PDF 阅读软件</a></li>
+<li><a href="#org87400d5">8. 文献阅读笔记</a></li>
+<li><a href="#orgbf8fecd">9. <span class="todo TODO">TODO</span> 基于 Emacs 的 latex 文献引用</a></li>
+<li><a href="#org146a9a3">10. 其他相关资源</a></li>
 </ul>
 </div>
-</div>
+</nav>
 <p>
 <b>目前我己经不使用 org-roam 管理笔记，本文的内容未更新。</b>
 </p>
@@ -44,10 +47,47 @@
 <p>
 这篇文章就更新下我目前的关于文献管理及笔记记录的相关流程，更多的是关于术的使用，道的部份还得每个人深思。
 </p>
-
-<div id="outline-container-org8c1f5ba" class="outline-2">
-<h2 id="org8c1f5ba"><span class="section-number-2">1.</span> Zotero</h2>
+<div id="outline-container-org47f8265" class="outline-2">
+<h2 id="org47f8265"><span class="section-number-2">1.</span> 文献收集</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+<a href="https://github.com/mpedramfar/zotra">Personal — mpedramfar/zotra</a>
+Zotero
+收集后的 Reference 是入口。citar-open 来打开 pdf 或者文献笔记。
+</p>
+</div>
+</div>
+<div id="outline-container-org40a5363" class="outline-2">
+<h2 id="org40a5363"><span class="section-number-2">2.</span> 文献笔记</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+denote citar-denote
+</p>
+
+<p>
+笔记界面跳转到 PDF 文件，网页链接：citar-denote-dwim
+笔记界面跳转到题录：citar-denote-open-reference-entry
+笔记界面跳转到某个引用笔记：citar-denote-find-reference
+从 Refernce 中查找哪些笔记引用该条目：citar-denote-find-citation
+</p>
+
+<p>
+查找某个文献笔记应该从 Reference 入口进(信息全)。Denote 也可以但是不是主要的。
+</p>
+</div>
+</div>
+<div id="outline-container-org25fe277" class="outline-2">
+<h2 id="org25fe277"><span class="section-number-2">3.</span> 引用笔记</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+插入引用 org-cite-insert(??, ????)
+引用条目上的操作，回车打开 PDF 文件，文献笔记、链接、修改引用条目。
+</p>
+</div>
+</div>
+<div id="outline-container-orge4a23c7" class="outline-2">
+<h2 id="orge4a23c7"><span class="section-number-2">4.</span> Zotero</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 首先是文献管理的基本软件。
 </p>
@@ -61,10 +101,25 @@ Zotero 的优势在于收集文献，我的基本使用流程是使用 Google sc
 </p>
 </div>
 </div>
+<div id="outline-container-org0e516ba" class="outline-2">
+<h2 id="org0e516ba"><span class="section-number-2">5.</span> 文献引用</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Word 是必不可少的，当进行文章写作的时候，可以使用 org 进行初稿的创作，然后使用 word 进行排版。
+</p>
 
-<div id="outline-container-orgc949254" class="outline-2">
-<h2 id="orgc949254"><span class="section-number-2">2.</span> Emacs 中文献的管理</h2>
-<div class="outline-text-2" id="text-2">
+<p>
+使用 ebib 的 dependent database 功能捡出文章所需要的文献，使用 my/bib2end 转成 Endnote 可以识别的格式导入到 Endnote 中。然后在 word 中进行引用。
+</p>
+
+<p>
+不使用 zotero 的原因是，它太占用内存了。
+</p>
+</div>
+</div>
+<div id="outline-container-org37e92f6" class="outline-2">
+<h2 id="org37e92f6"><span class="section-number-2">6.</span> Emacs 中文献的管理</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 在 Emacs 中有多个包可以进行文献的管理与阅读工作，具体的可以通过 melpa.org 这个网战查询。我目前使用的是 Ebib、Bibtex-completion、Citar、org-cite 以及 org-roam-bibtex 这几个。
 </p>
@@ -82,10 +137,9 @@ Ebib 是类似 zotero 的文献管理包，可以进行文献的收索、查询�
 </p>
 </div>
 </div>
-
-<div id="outline-container-org9bd7da8" class="outline-2">
-<h2 id="org9bd7da8"><span class="section-number-2">3.</span> PDF 阅读软件</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org7bc4100" class="outline-2">
+<h2 id="org7bc4100"><span class="section-number-2">7.</span> PDF 阅读软件</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 我通常只保存 PDF 文件，知网上的 CAJ 文件我会通过 Tempermonkey 这个软件来下载 PDF 文件，我不喜欢 CAJ 格式文件，在 Mac 上打开非常的慢，体验很差。
 </p>
@@ -103,17 +157,16 @@ Ebib 是类似 zotero 的文献管理包，可以进行文献的收索、查询�
 </p>
 
 
-<div id="org43f48ef" class="figure">
-<p><img src="../static/20221206102717screenshot.png" alt="20221206102717screenshot.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 1: </span>eaf-pdf-viewer</p>
-</div>
-</div>
-</div>
+<figure id="org32d436e">
+<img src="../static/20221206102717screenshot.png" alt="20221206102717screenshot.png" width="600px">
 
-<div id="outline-container-org8f39099" class="outline-2">
-<h2 id="org8f39099"><span class="section-number-2">4.</span> 文献阅读笔记</h2>
-<div class="outline-text-2" id="text-4">
+<figcaption><span class="figure-number">Figure 1: </span>eaf-pdf-viewer</figcaption>
+</figure>
+</div>
+</div>
+<div id="outline-container-org87400d5" class="outline-2">
+<h2 id="org87400d5"><span class="section-number-2">8.</span> 文献阅读笔记</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 我在 Emacs 中使用 org-roam 进行笔记的记录，相关的内容可以见我的文章，All-in-one 笔记系统。
 </p>
@@ -147,10 +200,9 @@ Ebib 是类似 zotero 的文献管理包，可以进行文献的收索、查询�
 </p>
 </div>
 </div>
-
-<div id="outline-container-orgd0f36c1" class="outline-2">
-<h2 id="orgd0f36c1"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> 基于 Emacs 的 latex 文献引用</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgbf8fecd" class="outline-2">
+<h2 id="orgbf8fecd"><span class="section-number-2">9.</span> <span class="todo TODO">TODO</span> 基于 Emacs 的 latex 文献引用</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 当需要投稿的时候，使用期刊提供的 Latex 模板可以很容易的引用文献，相比较于 Word 处理文献要容易的很多。
 </p>
@@ -180,10 +232,9 @@ Ebib 是类似 zotero 的文献管理包，可以进行文献的收索、查询�
 </p>
 </div>
 </div>
-
-<div id="outline-container-org28fa34f" class="outline-2">
-<h2 id="org28fa34f"><span class="section-number-2">6.</span> 其他相关资源</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org146a9a3" class="outline-2">
+<h2 id="org146a9a3"><span class="section-number-2">10.</span> 其他相关资源</h2>
+<div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=F2aNBnxosUQ&amp;t=3s">Literature review with org-ref - YouTube</a></li>
 </ul>
@@ -191,8 +242,8 @@ Ebib 是类似 zotero 的文献管理包，可以进行文献的收索、查询�
 </div>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
- <span class="updated">Updated: <span class="timestamp-wrapper"><span class="timestamp">[2023-04-19 Wed 14:45]</span></span> 2022-12-11</span> </div>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.90 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
+ <span class="updated">Updated: <span class="timestamp-wrapper"><span class="timestamp">[2024-10-12 Sat 00:41]</span></span> 2022-12-11</span> </div>
 </div>
 </body>
 </html>

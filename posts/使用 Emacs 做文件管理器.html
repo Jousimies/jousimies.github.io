@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2023-12-17 Sun 14:36 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2024-01-23 Tue 12:04 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>使用 Emacs 做文件管理器</title>
 <meta name="author" content="Jousimies" />
@@ -21,28 +19,29 @@
                <hr>
 </div>
 <div id="content" class="content">
+<header>
 <h1 class="title">使用 Emacs 做文件管理器</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga15297e">1. 文件管理</a></li>
-<li><a href="#orge5cccc9">2. 传统的文件管理器-Explorer 和 Finder</a></li>
-<li><a href="#orgf84b228">3. 高效文件管理的思考</a></li>
-<li><a href="#orge95ecb9">4. 基于 Emacs 的文件管理实践</a>
+<li><a href="#orga2ee13b">1. 文件管理</a></li>
+<li><a href="#orgffae02a">2. 传统的文件管理器-Explorer 和 Finder</a></li>
+<li><a href="#org6574120">3. 高效文件管理的思考</a></li>
+<li><a href="#org3ccc070">4. 基于 Emacs 的文件管理实践</a>
 <ul>
-<li><a href="#org513d9b1">4.1. 文件及所处的文件夹</a></li>
-<li><a href="#org621813f">4.2. 文件附件管理</a></li>
-<li><a href="#org59fb8b8">4.3. 笔记与文件的查找和反查</a></li>
-<li><a href="#org82ed43e">4.4. 补充说明</a></li>
+<li><a href="#org6d367c9">4.1. 文件及所处的文件夹</a></li>
+<li><a href="#orgf2c80db">4.2. 文件附件管理</a></li>
+<li><a href="#org8094e25">4.3. 笔记与文件的查找和反查</a></li>
+<li><a href="#org44ca697">4.4. 补充说明</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
+</nav>
 
-<div id="outline-container-orga15297e" class="outline-2">
-<h2 id="orga15297e"><span class="section-number-2">1.</span> 文件管理</h2>
+<div id="outline-container-orga2ee13b" class="outline-2">
+<h2 id="orga2ee13b"><span class="section-number-2">1.</span> 文件管理</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 首先需要搞明白什么是文件管理。
@@ -72,8 +71,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge5cccc9" class="outline-2">
-<h2 id="orge5cccc9"><span class="section-number-2">2.</span> 传统的文件管理器-Explorer 和 Finder</h2>
+<div id="outline-container-orgffae02a" class="outline-2">
+<h2 id="orgffae02a"><span class="section-number-2">2.</span> 传统的文件管理器-Explorer 和 Finder</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 对于上述的文件管理列出的七点内容，传统的文件管理器均能较好的工作。对于文件管理没有更高的要求，是完全可以继续使用的。有更高要求的可以探索更多的软件，如 Total Commander，Emacs 中的 dired 包等。
@@ -96,11 +95,11 @@
 </p>
 
 
-<div id="orgc93ef30" class="figure">
-<p><img src="../static/20231008170741screenshot.png" alt="20231008170741screenshot.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 1: </span>20231008170741screenshot</p>
-</div>
+<figure id="org2d61291">
+<img src="../static/20231008170741screenshot.png" alt="20231008170741screenshot.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 1: </span>20231008170741screenshot</figcaption>
+</figure>
 
 <p>
 文件的备份及恢复、文件属性和权限这里不多述。备份和恢复可以使用云盘或者移动硬盘进行，当然可以结合其他的备份软件以自动进行。
@@ -111,8 +110,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgf84b228" class="outline-2">
-<h2 id="orgf84b228"><span class="section-number-2">3.</span> 高效文件管理的思考</h2>
+<div id="outline-container-org6574120" class="outline-2">
+<h2 id="org6574120"><span class="section-number-2">3.</span> 高效文件管理的思考</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 传统的文件管理器可以较好的工作，为啥还要探索其他的可能呢？有以下几点需要考虑：
@@ -126,16 +125,16 @@
 </div>
 </div>
 
-<div id="outline-container-orge95ecb9" class="outline-2">
-<h2 id="orge95ecb9"><span class="section-number-2">4.</span> 基于 Emacs 的文件管理实践</h2>
+<div id="outline-container-org3ccc070" class="outline-2">
+<h2 id="org3ccc070"><span class="section-number-2">4.</span> 基于 Emacs 的文件管理实践</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 以下展示我使用 Emacs 管理笔记及对应的文件的方法。首先 Emacs 中有一个强大的包 Dired，它相当于 Explorer 或 Finder，与 Total Commander 一样强大。
 </p>
 </div>
 
-<div id="outline-container-org513d9b1" class="outline-3">
-<h3 id="org513d9b1"><span class="section-number-3">4.1.</span> 文件及所处的文件夹</h3>
+<div id="outline-container-org6d367c9" class="outline-3">
+<h3 id="org6d367c9"><span class="section-number-3">4.1.</span> 文件及所处的文件夹</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 比如当前我正在写作的这个文件（ORG 文档），它一定是存在于某个文件夹当中的。对于 Word 等这类软件要打开当前编辑的文件所在的文件夹，需要打开文件管理器，一层一层的找下去，如果文件层级较深还可能找错。在 Emacs 中仅需要一个组合按键 C-x C-j。
@@ -146,16 +145,16 @@
 </p>
 
 
-<div id="org612b3c3" class="figure">
-<p><img src="../static/Dired 文件管理器.png" alt="Dired 文件管理器.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 2: </span>Dired 文件管理器</p>
-</div>
+<figure id="orge923cf8">
+<img src="../static/Dired 文件管理器.png" alt="Dired 文件管理器.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 2: </span>Dired 文件管理器</figcaption>
+</figure>
 </div>
 </div>
 
-<div id="outline-container-org621813f" class="outline-3">
-<h3 id="org621813f"><span class="section-number-3">4.2.</span> 文件附件管理</h3>
+<div id="outline-container-orgf2c80db" class="outline-3">
+<h3 id="orgf2c80db"><span class="section-number-3">4.2.</span> 文件附件管理</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 文件管理并不一定是纯文本文件，可能是 Word、Excel、PPT 等富文本文件，对于这些富文本文件，Emacs 是不能编辑的，那么如何管理这些文件呢？我使用 org-attach 进行。如前所述，一个文件一定与相应的笔记相关联。
@@ -166,22 +165,22 @@
 </p>
 
 
-<div id="org016ed9b" class="figure">
-<p><img src="../static/Screenshot:当下的力量.png" alt="Screenshot:当下的力量.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 3: </span>Screenshot:当下的力量</p>
-</div>
+<figure id="orgd200e88">
+<img src="../static/Screenshot:当下的力量.png" alt="Screenshot:当下的力量.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 3: </span>Screenshot:当下的力量</figcaption>
+</figure>
 
 <p>
 图中上方为笔记内容的预览，从预览内容可以看到当前文件有一个条目叫“当下的力量”，这个是我刚添加的这本书的 EPUB 文件。使用 Org 管理笔记，可以通过 org-attach 给一个条目添加附件。具体的做法为，按 C-c C-a 打开下图的界面，在这个界面中通过 m（移动） 将文件添加到该条目下，会自动添加 ATTACH 这一 Tag 和自动生成 PROPERTIES 属性内容，其中 ID 是全局唯一的（基于时间生成，以后看到 ID 内容即可看到该文件是何时被添加的）。
 </p>
 
 
-<div id="org121adb2" class="figure">
-<p><img src="../static/Screenshot:org-attach.png" alt="Screenshot:org-attach.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 4: </span>Screenshot:org-attach</p>
-</div>
+<figure id="org37872fa">
+<img src="../static/Screenshot:org-attach.png" alt="Screenshot:org-attach.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 4: </span>Screenshot:org-attach</figcaption>
+</figure>
 
 <p>
 当然以上仅用于举例，管理书籍可以使用 Calibre 进行，一个被颜值耽误的强大软件。对于书籍以外的文件可以通过本文的方式进行。
@@ -189,8 +188,8 @@
 </div>
 </div>
 
-<div id="outline-container-org59fb8b8" class="outline-3">
-<h3 id="org59fb8b8"><span class="section-number-3">4.3.</span> 笔记与文件的查找和反查</h3>
+<div id="outline-container-org8094e25" class="outline-3">
+<h3 id="org8094e25"><span class="section-number-3">4.3.</span> 笔记与文件的查找和反查</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 一个文件与笔记相关联之后，查找文件可以先查找到与之相关的笔记，也可以找到该文件之后反向查找与之相关的笔记。
@@ -205,11 +204,11 @@
 </p>
 
 
-<div id="org12e3924" class="figure">
-<p><img src="../static/screenshot:consult-find.png" alt="screenshot:consult-find.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 5: </span>screenshot:consult-find</p>
-</div>
+<figure id="org7de89b7">
+<img src="../static/screenshot:consult-find.png" alt="screenshot:consult-find.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 5: </span>screenshot:consult-find</figcaption>
+</figure>
 
 
 <p>
@@ -217,16 +216,16 @@
 </p>
 
 
-<div id="org12e93f1" class="figure">
-<p><img src="../static/screenshot:embark-collect.png" alt="screenshot:embark-collect.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 6: </span>screenshot:embark-collect</p>
-</div>
+<figure id="orga0f1c27">
+<img src="../static/screenshot:embark-collect.png" alt="screenshot:embark-collect.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 6: </span>screenshot:embark-collect</figcaption>
+</figure>
 </div>
 </div>
 
-<div id="outline-container-org82ed43e" class="outline-3">
-<h3 id="org82ed43e"><span class="section-number-3">4.4.</span> 补充说明</h3>
+<div id="outline-container-org44ca697" class="outline-3">
+<h3 id="org44ca697"><span class="section-number-3">4.4.</span> 补充说明</h3>
 <div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li>my/org-attach-visit-headline-from-dired 该函数目前仅能跳转到一个条目上，如果有多个条目具有相同的 ID 目前还不能准确跳转，需要改进该函数。</li>
@@ -237,7 +236,7 @@
 </div>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.90 (<a href="https://orgmode.org">Org</a> mode 9.6.11) on MacOS</span>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.15) on MacOS</span>
  <span class="updated">Updated: 2023-10-14 Sat 23:06</span> </div>
 </div>
 </body>

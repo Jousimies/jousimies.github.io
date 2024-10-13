@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2023-09-19 Tue 10:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2024-01-23 Tue 12:04 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>关于 Emacs 原生按键和模式编辑的选择</title>
 <meta name="author" content="Jousimies" />
@@ -20,8 +18,9 @@
                <hr>
 </div>
 <div id="content" class="content">
+<header>
 <h1 class="title">关于 Emacs 原生按键和模式编辑的选择</h1>
-<p>
+</header><p>
 使用 Emacs 的人我想大部份都听说过原生按键模式和模式编辑模式。Emacs 中的原生按键模式需要组合使用功能键和字母键，比如 C-a 去行首，C-e 去行尾，MacOS 默认也支持 Emacs 式的原生按键模式。而模式编辑则是以 Vim 为代表的文本编辑方法，当然在 Emacs 中还有其他的模式编辑支持如，God、Meow、Xah-fly-key 等等。
 </p>
 
@@ -38,7 +37,7 @@ Evil 很好用，也有很多的使用用户。但是 Evil 自己也有很多的
 </p>
 
 <p>
-最开始很不习惯原生控键方式，会经常想要按 i 进入 insert 模式，按 <code>Esc</code> 退出按键模式。会想要使用 j k 进行上下的移动光标。原本使用模式编辑可以很方便的选择文本，而使用原生按键就显的不太方便。
+最开始很不习惯原生控键方式，会经常想要按 i 进入 insert 模式，按 <kbd>Esc</kbd> 退出按键模式。会想要使用 j k 进行上下的移动光标。原本使用模式编辑可以很方便的选择文本，而使用原生按键就显的不太方便。
 </p>
 
 <p>
@@ -58,7 +57,7 @@ Evil 很好用，也有很多的使用用户。但是 Evil 自己也有很多的
 </p>
 
 <p>
-此外说说关于 Emacs 和 Meow 这两种方式的体验。使用 Emacs 的按键那么可以获得原生的体验，在各个包的层面都有统一的体验，问题在于移动的时候如果 <code>ctrl</code> 没有按好，那么移动就会变成输入，这个体验很差。 Meow 的问题是其有自己的按键绑定，离开了 Emacs 这种方式就没有了用武之地，当需要跨电脑使用时，会很难受，为了在多个软件中有一致的使用体验，还是给 Evil 一次机会。
+此外说说关于 Emacs 和 Meow 这两种方式的体验。使用 Emacs 的按键那么可以获得原生的体验，在各个包的层面都有统一的体验，问题在于移动的时候如果 <kbd>ctrl</kbd> 没有按好，那么移动就会变成输入，这个体验很差。 Meow 的问题是其有自己的按键绑定，离开了 Emacs 这种方式就没有了用武之地，当需要跨电脑使用时，会很难受，为了在多个软件中有一致的使用体验，还是给 Evil 一次机会。
 </p>
 
 <p>
@@ -66,7 +65,7 @@ Evil 很好用，也有很多的使用用户。但是 Evil 自己也有很多的
 </p>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.15) on MacOS</span>
  <span class="updated">Updated: 2023-04-26 Wed 16:20</span> </div>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-10-13 Sun 09:31 -->
+<!-- 2024-10-13 Sun 10:32 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs 中使用 dired 替代系统文件管理器 Finder</title>
@@ -12,10 +12,10 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<a href="/index.html" class="button">Home</a>
-               <a href="/posts/index.html" class="button">Posts</a>
+
                <a href="/Structure/index.html" class="button">建筑结构设计</a>
-               <a href="/about.html" class="button">About</a>
+               <a href="/Tools/index.html" class="button">工具</a>
+               <a href="/about.html" class="button">关于</a>
                <hr>
 </div>
 <div id="content" class="content">
@@ -25,21 +25,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3f788a9">1. 增</a></li>
-<li><a href="#orgc8fab00">2. 删</a></li>
-<li><a href="#orgc4b5a02">3. 改</a></li>
-<li><a href="#org570c268">4. 查</a></li>
-<li><a href="#org9e528d3">5. 其他</a>
+<li><a href="#org9bf36ee">1. 增</a></li>
+<li><a href="#orgd17c23b">2. 删</a></li>
+<li><a href="#orgd5ae782">3. 改</a></li>
+<li><a href="#orgf0d19ee">4. 查</a></li>
+<li><a href="#orgacd1b2d">5. 其他</a>
 <ul>
-<li><a href="#org1c98b64">5.1. 文件打开与编辑</a></li>
-<li><a href="#org3b04116">5.2. 文件预览</a></li>
-<li><a href="#org15852e2">5.3. 使用系统文件管理器打开文件夹</a></li>
-<li><a href="#orgab22b34">5.4. 文件跳转&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></a></li>
-<li><a href="#org3823612">5.5. 标签管理常用文件夹</a></li>
-<li><a href="#orgecaddea">5.6. 固定文件的跳转</a></li>
+<li><a href="#org45e2674">5.1. 文件打开与编辑</a></li>
+<li><a href="#org30b2365">5.2. 文件预览</a></li>
+<li><a href="#org3fb469a">5.3. 使用系统文件管理器打开文件夹</a></li>
+<li><a href="#orgbbd1316">5.4. 文件跳转&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></a></li>
+<li><a href="#org937f5bc">5.5. 标签管理常用文件夹</a></li>
+<li><a href="#org2215747">5.6. 固定文件的跳转</a></li>
 </ul>
 </li>
-<li><a href="#org51192b6">6. 注意</a></li>
+<li><a href="#orgfd65d09">6. 注意</a></li>
 </ul>
 </div>
 </nav>
@@ -59,8 +59,8 @@ Finder 会在文件夹中自动创建 .DS<sub>Store</sub> 文件，而且没法�
 <p>
 大部份情况下我使用 Emacs 中的 Dired 管理文件。下面简单说说使用体验。文件管理器的主要作用就是增删改查，而使用 Emacs 管理文件及文件夹的实践，简洁且高效。
 </p>
-<div id="outline-container-org3f788a9" class="outline-2">
-<h2 id="org3f788a9"><span class="section-number-2">1.</span> 增</h2>
+<div id="outline-container-org9bf36ee" class="outline-2">
+<h2 id="org9bf36ee"><span class="section-number-2">1.</span> 增</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 文件中的增可以是新建文件夹或者新建一个文件。在 Finder 中不支持创建指定格式的文件，如 docx，Win 中可以直接右键创建。这两者也就是个使用习惯的问题，毕竟创建了空白的文件还是需要打开对应的软件来进行编辑，相反如果先打开软件则可以创建带模板的新文件。
@@ -103,16 +103,16 @@ Finder 会在文件夹中自动创建 .DS<sub>Store</sub> 文件，而且没法�
 </p>
 </div>
 </div>
-<div id="outline-container-orgc8fab00" class="outline-2">
-<h2 id="orgc8fab00"><span class="section-number-2">2.</span> 删</h2>
+<div id="outline-container-orgd17c23b" class="outline-2">
+<h2 id="orgd17c23b"><span class="section-number-2">2.</span> 删</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 对于删除文件，同样的可以先标记（m）欲删除的文件，然后使用 D（dired-do-delete）来删除文件，也可以直接使用 D 来标记，然后使用 X 执行删除文件操作。先标记再删除就可以使用上一节中标记文件的方法进行。
 </p>
 </div>
 </div>
-<div id="outline-container-orgc4b5a02" class="outline-2">
-<h2 id="orgc4b5a02"><span class="section-number-2">3.</span> 改</h2>
+<div id="outline-container-orgd5ae782" class="outline-2">
+<h2 id="orgd5ae782"><span class="section-number-2">3.</span> 改</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 对于单一的文件改名，可以直接使用 R 进行。如果只开一个 buffer 那么修改后的文件依然处于当前文件夹中，如果开两个并列的 buffer 那么修改后的文件会从源文件夹中移动到目标文件夹中，源文件夹中的文件依然会被保留。这个行为就是复制文件夹到其他文件夹中并修改文件名的操作。
@@ -123,8 +123,8 @@ Finder 会在文件夹中自动创建 .DS<sub>Store</sub> 文件，而且没法�
 </p>
 </div>
 </div>
-<div id="outline-container-org570c268" class="outline-2">
-<h2 id="org570c268"><span class="section-number-2">4.</span> 查</h2>
+<div id="outline-container-orgf0d19ee" class="outline-2">
+<h2 id="orgf0d19ee"><span class="section-number-2">4.</span> 查</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 我认为需要查找的文件或者文件夹是会需要一定的上下文的。没有上下文的文件，时间久了之后就会被遗忘，成为信息的孤岛。当前我使用 org-attach 管理文件，上下文信息使用 org-roam 进行。
@@ -143,20 +143,20 @@ org-roam 是 zettelkasten 笔记法在 Emacs 中的实现，类似于 roam 和 o
 </p>
 </div>
 </div>
-<div id="outline-container-org9e528d3" class="outline-2">
-<h2 id="org9e528d3"><span class="section-number-2">5.</span> 其他</h2>
+<div id="outline-container-orgacd1b2d" class="outline-2">
+<h2 id="orgacd1b2d"><span class="section-number-2">5.</span> 其他</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org1c98b64" class="outline-3">
-<h3 id="org1c98b64"><span class="section-number-3">5.1.</span> 文件打开与编辑</h3>
+<div id="outline-container-org45e2674" class="outline-3">
+<h3 id="org45e2674"><span class="section-number-3">5.1.</span> 文件打开与编辑</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 当使用 dired 打开了某个文件夹，对于纯文本文件（org/md/txt/tex等等），直接回车使用 Emacs 进行编辑。对于富文本文件(docx/ppt/excel)，回车会默认解压此类文件，可以使用 W （browse-url-of-dired-file）来使用系统默认的软件打开文件。
 </p>
 </div>
 </div>
-<div id="outline-container-org3b04116" class="outline-3">
-<h3 id="org3b04116"><span class="section-number-3">5.2.</span> 文件预览</h3>
+<div id="outline-container-org30b2365" class="outline-3">
+<h3 id="org30b2365"><span class="section-number-3">5.2.</span> 文件预览</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Finder 有个很好用的功能是在某些文件上按空格可以直接使用 preview 对文件进行预览。Emacs 中可以使用 dirvish 替代 dired 使用，我是使用 p（dired-preview） 调用 Mac 系统中的 qlmanage 来进行预览。
@@ -174,16 +174,16 @@ Finder 有个很好用的功能是在某些文件上按空格可以直接使用 
 </div>
 </div>
 </div>
-<div id="outline-container-org15852e2" class="outline-3">
-<h3 id="org15852e2"><span class="section-number-3">5.3.</span> 使用系统文件管理器打开文件夹</h3>
+<div id="outline-container-org3fb469a" class="outline-3">
+<h3 id="org3fb469a"><span class="section-number-3">5.3.</span> 使用系统文件管理器打开文件夹</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 我是使用了李杀写的函数，xah-show-in-desktop，绑定到了按键 e 上。使用的时候按 e 就会使用在 Finder 中显示当前文件。
 </p>
 </div>
 </div>
-<div id="outline-container-orgab22b34" class="outline-3">
-<h3 id="orgab22b34"><span class="section-number-3">5.4.</span> 文件跳转&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h3>
+<div id="outline-container-orgbbd1316" class="outline-3">
+<h3 id="orgbbd1316"><span class="section-number-3">5.4.</span> 文件跳转&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 对于纯文本文件，我会使用 C-x C-j (dired-jump) 来跳转到当前的文件夹中，也就是在 dired 中显示当前的文件。
@@ -198,8 +198,8 @@ Finder 有个很好用的功能是在某些文件上按空格可以直接使用 
 </p>
 </div>
 </div>
-<div id="outline-container-org3823612" class="outline-3">
-<h3 id="org3823612"><span class="section-number-3">5.5.</span> 标签管理常用文件夹</h3>
+<div id="outline-container-org937f5bc" class="outline-3">
+<h3 id="org937f5bc"><span class="section-number-3">5.5.</span> 标签管理常用文件夹</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 对于常用的文件夹，我使用 bookmark 进行管理，就类似于 Finder 中把常用的文件夹 pin 到左侧目录树中是类似的。
@@ -210,8 +210,8 @@ C-x r m（bookmark-set）来将当前文件或文件夹添加到 bookmark 当中
 </p>
 </div>
 </div>
-<div id="outline-container-orgecaddea" class="outline-3">
-<h3 id="orgecaddea"><span class="section-number-3">5.6.</span> 固定文件的跳转</h3>
+<div id="outline-container-org2215747" class="outline-3">
+<h3 id="org2215747"><span class="section-number-3">5.6.</span> 固定文件的跳转</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 在 Emacs 中对于固定的文件可以使用 register 进行，其类似于 bookmark。C-x f(jump-to-register)，然后按对应的字母即可打开指定的文件。不再需要类似于系统的文件管理器一样，先打开某个文件夹，再打开某个文件夹。
@@ -219,8 +219,8 @@ C-x r m（bookmark-set）来将当前文件或文件夹添加到 bookmark 当中
 </div>
 </div>
 </div>
-<div id="outline-container-org51192b6" class="outline-2">
-<h2 id="org51192b6"><span class="section-number-2">6.</span> 注意</h2>
+<div id="outline-container-orgfd65d09" class="outline-2">
+<h2 id="orgfd65d09"><span class="section-number-2">6.</span> 注意</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 以上我只是写了我怎么使用 dired 管理我的文件及文件夹，但是没有给出详细的步骤及过程。文本的内容很难完全的展示其便利性及高效性，视频展示会是一个比较好的方式，但是目前没有这方面的计划。

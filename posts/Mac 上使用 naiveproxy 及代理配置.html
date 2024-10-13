@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2023-09-19 Tue 10:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2024-01-23 Tue 12:04 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mac 上使用 naiveproxy 及代理配置</title>
 <meta name="author" content="Jousimie" />
@@ -20,8 +18,9 @@
                <hr>
 </div>
 <div id="content" class="content">
+<header>
 <h1 class="title">Mac 上使用 naiveproxy 及代理配置</h1>
-<p>
+</header><p>
 Naiveproxy 是一种科学上网方式，但是其没有合适的客户端可用。虽然可以使用 qv2ray 然后使用 naive 的插件方式进行，但是我个人觉得其有点过于笨重，导致我不怎么想使用 qv2ray。
 </p>
 
@@ -47,11 +46,11 @@ Naiveproxy 是一种科学上网方式，但是其没有合适的客户端可用
 </p>
 
 
-<div id="orgf426ca8" class="figure">
-<p><img src="../static/20230215110837screenshot.png" alt="20230215110837screenshot.png" width="600px" />
-</p>
-<p><span class="figure-number">Figure 1: </span>Proxies 设置界面</p>
-</div>
+<figure id="org3d7f58a">
+<img src="../static/20230215110837screenshot.png" alt="20230215110837screenshot.png" width="600px">
+
+<figcaption><span class="figure-number">Figure 1: </span>Proxies 设置界面</figcaption>
+</figure>
 
 <p>
 我设置的 naiveproxy 工作在 1080 端口，在上面的 Proxies 界面中，我尝试使用了 http 和 https 两种设置，但是都不能使 Safari 正常的工作。后来看到有 Automatic proxy configuration 这个选项，其要求是使用 pac 文件来进行科学上网。
@@ -145,7 +144,7 @@ noproxy () {
 </p>
 </div>
 <div id="postamble" class="status">
-<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.6.8) on MacOS</span>
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.0.50 (<a href="https://orgmode.org">Org</a> mode 9.6.15) on MacOS</span>
  <span class="updated">Updated: 2023-04-25 Tue 09:46</span> </div>
 </div>
 </body>

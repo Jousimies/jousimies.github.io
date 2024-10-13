@@ -3,8 +3,8 @@
 
 body {
     margin: 10px auto;
-    width: 900px;
-    max-width: 100%;
+    /* width: 900px; */
+    max-width: 70%;
     background: white;
     font-size: 18px;
 }
@@ -18,7 +18,7 @@ body {
 
 hr {
     border: none;
-    border-top: 5px double #333;
+    border-top: 1px double #333;
     margin: 0px 0;
 }
 
@@ -59,7 +59,7 @@ hr {
     left: 0em;
     top: 0em;
     background: white;
-    max-height: 80%;
+    max-width: 20%;
     overflow: auto;
 }
 
@@ -211,10 +211,10 @@ b {
 
 #footnotes {
     position: fixed;
-    left: auto;
-    right: 0;
-    top: 105px;
-    bottom: 0;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: 20px;
     width: 20%;
     padding: 10px;
     overflow: auto;

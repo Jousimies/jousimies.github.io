@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-10-13 Sun 09:31 -->
+<!-- 2024-10-13 Sun 10:32 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs：使用 org publish 生成博客</title>
@@ -12,10 +12,10 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<a href="/index.html" class="button">Home</a>
-               <a href="/posts/index.html" class="button">Posts</a>
+
                <a href="/Structure/index.html" class="button">建筑结构设计</a>
-               <a href="/about.html" class="button">About</a>
+               <a href="/Tools/index.html" class="button">工具</a>
+               <a href="/about.html" class="button">关于</a>
                <hr>
 </div>
 <div id="content" class="content">
@@ -46,7 +46,7 @@ Org 自带了一个文档发布系统，可以将 org 文件生成为静态的 H
 <p>
 我的博客文档结构如下：
 </p>
-<pre class="example" id="org54b6a01">
+<pre class="example" id="orgd035182">
 ├── about.html
 ├── css
 │   └── style.css
@@ -153,7 +153,7 @@ Emacs 中使用 Org Publish 生成博客相关的配置内容如下：
 <p>
 我使用的是 temple 插件，my/new-article 调用的模板 blog 内容如下：
 </p>
-<pre class="example" id="org28139ac">
+<pre class="example" id="org44632c8">
 (blog
  "#+DESCRIPTION: " p n&gt;
  "#+DATE: " n&gt;
@@ -297,8 +297,8 @@ b {
 </div>
 
 
-<figure id="org67da808">
-<img src="../static/20230605192952screenshot.png" alt="20230605192952screenshot.png" width="600px">
+<figure id="orga611a27">
+<img src="/static/20230605192952screenshot.png" alt="20230605192952screenshot.png" width="600px">
 
 <figcaption><span class="figure-number">Figure 1: </span>简单的博客样式</figcaption>
 </figure>
