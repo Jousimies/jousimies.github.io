@@ -1,0 +1,136 @@
+/* Global Styles */
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Helvetica Neue', sans-serif;
+  margin-left: 220px;
+  max-width: 1200px;
+  padding: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: var(--link);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Sidebar Styles */
+nav#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: var(--code-bg);
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+nav#sidebar a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav#sidebar a:hover {
+  background-color: var(--link);
+  color: var(--bg);
+}
+
+/* Code Block Styles */
+code {
+  background: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Link Styling */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+:root {
+  --bg: #fff;
+  --fg: #111;
+  --link: #007acc;
+  --code-bg: #f0f0f0;
+}
+
+/* Adjustments for readability and accessibility */
+blockquote {
+  padding: 1rem;
+  background: var(--code-bg);
+  border-left: 4px solid var(--link);
+  font-style: italic;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+ul li, ol li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  nav#sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+}
