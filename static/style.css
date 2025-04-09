@@ -1,9 +1,17 @@
+/* style.css */
+/* 添加 highlight.js 样式 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css');
+/* style.css */
+/* 添加 Prism.js 样式 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css');
+
+
 /* Global Styles */
 body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: 'Helvetica Neue', sans-serif;
-  margin-left: 220px;
+  /* margin-left: 220px; */
   max-width: 1200px;
   padding: 2rem;
   transition: background-color 0.3s, color 0.3s;
@@ -138,11 +146,6 @@ ul li, ol li {
 /* style.css */
 .nav-buttons {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   z-index: 999;
 }
 
@@ -160,3 +163,18 @@ ul li, ol li {
 .nav-buttons button:hover {
   background-color: #555;
 }
+
+/* 返回上一页按钮，放置在左下角 */
+.nav-buttons .back-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* 返回首页按钮，放置在右上角 */
+.nav-buttons .home-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+

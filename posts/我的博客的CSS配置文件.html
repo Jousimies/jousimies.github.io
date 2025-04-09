@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-09 Wed 06:10 -->
+<!-- 2025-04-09 Wed 06:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的博客的CSS配置文件</title>
@@ -193,7 +193,10 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" href="/static/style.css" />
-<script src="/static/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+                           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+                           <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+                           <SCRIPT src="/static/js/main.js"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -203,140 +206,140 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css">/* Global Styles */
-body {
-  background-color: var(--bg);
-  color: var(--fg);
-  font-family: 'Helvetica Neue', sans-serif;
-  margin-left: 220px;
-  max-width: 1200px;
-  padding: 2rem;
-  transition: background-color 0.3s, color 0.3s;
-  line-height: 1.6;
+<pre class="src src-css"><span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Global Styles</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold;">body</span> {
+  <span style="font-weight: bold;">background-color</span>: var(<span style="font-weight: bold; font-style: italic;">--bg</span>);
+  <span style="font-weight: bold;">color</span>: var(<span style="font-weight: bold; font-style: italic;">--fg</span>);
+  <span style="font-weight: bold;">font-family</span>: <span style="font-style: italic;">'Helvetica Neue'</span>, sans-serif;
+  <span style="font-weight: bold;">margin-left</span>: 220px;
+  <span style="font-weight: bold;">max-width</span>: 1200px;
+  <span style="font-weight: bold;">padding</span>: 2rem;
+  <span style="font-weight: bold;">transition</span>: background-color 0.3s, color 0.3s;
+  <span style="font-weight: bold;">line-height</span>: 1.6;
 }
 
-h1, h2, h3 {
-  color: var(--link);
-  margin-bottom: 1rem;
+<span style="font-weight: bold;">h1, h2, h3</span> {
+  <span style="font-weight: bold;">color</span>: var(<span style="font-weight: bold; font-style: italic;">--link</span>);
+  <span style="font-weight: bold;">margin-bottom</span>: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+<span style="font-weight: bold;">h1</span> {
+  <span style="font-weight: bold;">font-size</span>: 2.5rem;
+  <span style="font-weight: bold;">font-weight</span>: bold;
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: bold;
+<span style="font-weight: bold;">h2</span> {
+  <span style="font-weight: bold;">font-size</span>: 2rem;
+  <span style="font-weight: bold;">font-weight</span>: bold;
 }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
+<span style="font-weight: bold;">h3</span> {
+  <span style="font-weight: bold;">font-size</span>: 1.5rem;
+  <span style="font-weight: bold;">font-weight</span>: bold;
 }
 
-p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+<span style="font-weight: bold;">p</span> {
+  <span style="font-weight: bold;">margin-bottom</span>: 1.5rem;
+  <span style="font-weight: bold;">font-size</span>: 1.1rem;
 }
 
-/* Sidebar Styles */
-nav#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 200px;
-  background-color: var(--code-bg);
-  padding: 2rem 1rem;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Sidebar Styles</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold;">nav#sidebar</span> {
+  <span style="font-weight: bold;">position</span>: fixed;
+  <span style="font-weight: bold;">top</span>: 0;
+  <span style="font-weight: bold;">left</span>: 0;
+  <span style="font-weight: bold;">height</span>: 100vh;
+  <span style="font-weight: bold;">width</span>: 200px;
+  <span style="font-weight: bold;">background-color</span>: var(<span style="font-weight: bold; font-style: italic;">--code-bg</span>);
+  <span style="font-weight: bold;">padding</span>: 2rem 1rem;
+  <span style="font-weight: bold;">box-shadow</span>: 2px 0 5px <span style="color: #ffffff; background-color: #000000;">rgba(0, 0, 0, 0.2)</span>;
+  <span style="font-weight: bold;">display</span>: flex;
+  <span style="font-weight: bold;">flex-direction</span>: column;
+  <span style="font-weight: bold;">gap</span>: 1rem;
 }
 
-nav#sidebar a {
-  color: var(--link);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: background-color 0.3s, color 0.3s;
+<span style="font-weight: bold;">nav#sidebar a</span> {
+  <span style="font-weight: bold;">color</span>: var(<span style="font-weight: bold; font-style: italic;">--link</span>);
+  <span style="font-weight: bold;">text-decoration</span>: none;
+  <span style="font-weight: bold;">font-weight</span>: bold;
+  <span style="font-weight: bold;">padding</span>: 0.5rem;
+  <span style="font-weight: bold;">border-radius</span>: 6px;
+  <span style="font-weight: bold;">transition</span>: background-color 0.3s, color 0.3s;
 }
 
-nav#sidebar a:hover {
-  background-color: var(--link);
-  color: var(--bg);
+<span style="font-weight: bold;">nav#sidebar a:hover</span> {
+  <span style="font-weight: bold;">background-color</span>: var(<span style="font-weight: bold; font-style: italic;">--link</span>);
+  <span style="font-weight: bold;">color</span>: var(<span style="font-weight: bold; font-style: italic;">--bg</span>);
 }
 
-/* Code Block Styles */
-code {
-  background: var(--code-bg);
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-size: 0.95rem;
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Code Block Styles</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold;">code</span> {
+  <span style="font-weight: bold;">background</span>: var(<span style="font-weight: bold; font-style: italic;">--code-bg</span>);
+  <span style="font-weight: bold;">padding</span>: 0.2em 0.4em;
+  <span style="font-weight: bold;">border-radius</span>: 4px;
+  <span style="font-weight: bold;">font-size</span>: 0.95rem;
 }
 
-pre {
-  background: var(--code-bg);
-  padding: 1em;
-  border-radius: 6px;
-  overflow-x: auto;
-  font-family: 'Courier New', monospace;
-  font-size: 1rem;
-  line-height: 1.4;
+<span style="font-weight: bold;">pre</span> {
+  <span style="font-weight: bold;">background</span>: var(<span style="font-weight: bold; font-style: italic;">--code-bg</span>);
+  <span style="font-weight: bold;">padding</span>: 1em;
+  <span style="font-weight: bold;">border-radius</span>: 6px;
+  <span style="font-weight: bold;">overflow-x</span>: auto;
+  <span style="font-weight: bold;">font-family</span>: <span style="font-style: italic;">'Courier New'</span>, monospace;
+  <span style="font-weight: bold;">font-size</span>: 1rem;
+  <span style="font-weight: bold;">line-height</span>: 1.4;
 }
 
-/* Link Styling */
-a {
-  color: var(--link);
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Link Styling</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold;">a</span> {
+  <span style="font-weight: bold;">color</span>: var(<span style="font-weight: bold; font-style: italic;">--link</span>);
+  <span style="font-weight: bold;">text-decoration</span>: none;
+  <span style="font-weight: bold;">transition</span>: color 0.3s ease-in-out;
 }
 
-a:hover {
-  color: var(--link);
-  text-decoration: underline;
+<span style="font-weight: bold;">a:hover</span> {
+  <span style="font-weight: bold;">color</span>: var(<span style="font-weight: bold; font-style: italic;">--link</span>);
+  <span style="font-weight: bold;">text-decoration</span>: underline;
 }
 
-:root {
-  --bg: #fff;
-  --fg: #111;
-  --link: #007acc;
-  --code-bg: #f0f0f0;
+<span style="font-weight: bold;">:root</span> {
+  <span style="font-weight: bold; font-style: italic;">--bg</span>: <span style="color: #000000; background-color: #fff;">#fff</span>;
+  <span style="font-weight: bold; font-style: italic;">--fg</span>: <span style="color: #ffffff; background-color: #111;">#111</span>;
+  <span style="font-weight: bold; font-style: italic;">--link</span>: <span style="color: #ffffff; background-color: #007acc;">#007acc</span>;
+  <span style="font-weight: bold; font-style: italic;">--code-bg</span>: <span style="color: #000000; background-color: #f0f0f0;">#f0f0f0</span>;
 }
 
-/* Adjustments for readability and accessibility */
-blockquote {
-  padding: 1rem;
-  background: var(--code-bg);
-  border-left: 4px solid var(--link);
-  font-style: italic;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Adjustments for readability and accessibility</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold;">blockquote</span> {
+  <span style="font-weight: bold;">padding</span>: 1rem;
+  <span style="font-weight: bold;">background</span>: var(<span style="font-weight: bold; font-style: italic;">--code-bg</span>);
+  <span style="font-weight: bold;">border-left</span>: 4px solid var(<span style="font-weight: bold; font-style: italic;">--link</span>);
+  <span style="font-weight: bold;">font-style</span>: italic;
+  <span style="font-weight: bold;">margin-left</span>: 1.5rem;
+  <span style="font-weight: bold;">margin-right</span>: 1.5rem;
 }
 
-ul, ol {
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
+<span style="font-weight: bold;">ul, ol</span> {
+  <span style="font-weight: bold;">margin-bottom</span>: 1.5rem;
+  <span style="font-weight: bold;">padding-left</span>: 1.5rem;
 }
 
-ul li, ol li {
-  margin-bottom: 0.5rem;
+<span style="font-weight: bold;">ul li, ol li</span> {
+  <span style="font-weight: bold;">margin-bottom</span>: 0.5rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  body {
-    margin-left: 0;
-    padding: 1rem;
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Responsive Design</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold;">@media</span> (max-width: 768px) {
+  <span style="font-weight: bold;">body</span> {
+    <span style="font-weight: bold;">margin-left</span>: 0;
+    <span style="font-weight: bold;">padding</span>: 1rem;
   }
 
-  nav#sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    box-shadow: none;
+  <span style="font-weight: bold;">nav#sidebar</span> {
+    <span style="font-weight: bold;">width</span>: 100%;
+    <span style="font-weight: bold;">height</span>: auto;
+    <span style="font-weight: bold;">position</span>: relative;
+    <span style="font-weight: bold;">box-shadow</span>: none;
   }
 }
 

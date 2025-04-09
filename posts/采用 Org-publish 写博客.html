@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-09 Wed 06:10 -->
+<!-- 2025-04-09 Wed 06:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>采用 Org-publish 写博客</title>
@@ -193,7 +193,10 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" href="/static/style.css" />
-<script src="/static/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+                           <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+                           <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+                           <SCRIPT src="/static/js/main.js"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -207,73 +210,73 @@ Emacs 中的基本配置内容如下：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(require 'ox-publish)
+<pre class="src src-emacs-lisp">(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-publish</span>)
 
-(defvar my/blog-nav-html
-  "&lt;a href=\"/index.html\"&gt;首页&lt;/a&gt;
-     &lt;a href=\"/about.html\"&gt;关于&lt;/a&gt;"
-  "博客页面导航栏 HTML 片段。")
+(<span style="font-weight: bold;">defvar</span> <span style="font-weight: bold; font-style: italic;">my/blog-nav-html</span>
+  <span style="font-style: italic;">"&lt;a href=\"/index.html\"&gt;&#39318;&#39029;&lt;/a&gt;</span>
+<span style="font-style: italic;">     &lt;a href=\"/about.html\"&gt;&#20851;&#20110;&lt;/a&gt;"</span>
+  <span style="font-style: italic;">"&#21338;&#23458;&#39029;&#38754;&#23548;&#33322;&#26639; HTML &#29255;&#27573;&#12290;"</span>)
 
-(setq org-publish-project-alist
+(<span style="font-weight: bold;">setq</span> org-publish-project-alist
       `(
-        ("blog-org"
-         :base-directory "./org/"
-         :base-extension "org"
-         :publishing-directory "./public/"
-         :recursive t
-         :html-head "&lt;link rel=\"stylesheet\" href=\"/static/style.css\" /&gt;"
-         :html-head-extra "&lt;script src=\"/static/js/main.js\"&gt;&lt;/script&gt;"
-         :html-preamble nil
-         :html-preamble-format (("en" ,my/blog-nav-html))
-         :html-postamble t
-         :html-postamble-format (("en" "&lt;hr&gt;&lt;div class=\"info\"&gt; &lt;span class=\"created\"&gt;Created with %c on MacOS&lt;/span&gt;
- &lt;span class=\"updated\"&gt;Updated: %d&lt;/span&gt; &lt;/div&gt;"))
+        (<span style="font-style: italic;">"blog-org"</span>
+         <span style="font-weight: bold;">:base-directory</span> <span style="font-style: italic;">"./org/"</span>
+         <span style="font-weight: bold;">:base-extension</span> <span style="font-style: italic;">"org"</span>
+         <span style="font-weight: bold;">:publishing-directory</span> <span style="font-style: italic;">"./public/"</span>
+         <span style="font-weight: bold;">:recursive</span> t
+         <span style="font-weight: bold;">:html-head</span> <span style="font-style: italic;">"&lt;link rel=\"stylesheet\" href=\"/static/style.css\" /&gt;"</span>
+         <span style="font-weight: bold;">:html-head-extra</span> <span style="font-style: italic;">"&lt;script src=\"/static/js/main.js\"&gt;&lt;/script&gt;"</span>
+         <span style="font-weight: bold;">:html-preamble</span> nil
+         <span style="font-weight: bold;">:html-preamble-format</span> ((<span style="font-style: italic;">"en"</span> ,my/blog-nav-html))
+         <span style="font-weight: bold;">:html-postamble</span> t
+         <span style="font-weight: bold;">:html-postamble-format</span> ((<span style="font-style: italic;">"en"</span> <span style="font-style: italic;">"&lt;hr&gt;&lt;div class=\"info\"&gt; &lt;span class=\"created\"&gt;Created with %c on MacOS&lt;/span&gt;</span>
+<span style="font-style: italic;"> &lt;span class=\"updated\"&gt;Updated: %d&lt;/span&gt; &lt;/div&gt;"</span>))
 
-         :with-toc t
-         :section-numbers nil
-         :with-author nil
-         :with-creator nil
-         :with-date t
-         :publishing-function org-html-publish-to-html
+         <span style="font-weight: bold;">:with-toc</span> t
+         <span style="font-weight: bold;">:section-numbers</span> nil
+         <span style="font-weight: bold;">:with-author</span> nil
+         <span style="font-weight: bold;">:with-creator</span> nil
+         <span style="font-weight: bold;">:with-date</span> t
+         <span style="font-weight: bold;">:publishing-function</span> org-html-publish-to-html
          )
 
-        ("blog-static"
-         :base-directory "./static/"
-         :base-extension "css\\|js\\|png\\|jpg\\|svg\\|ico"
-         :publishing-directory "./public/static/"
-         :recursive t
-         :publishing-function org-publish-attachment)
+        (<span style="font-style: italic;">"blog-static"</span>
+         <span style="font-weight: bold;">:base-directory</span> <span style="font-style: italic;">"./static/"</span>
+         <span style="font-weight: bold;">:base-extension</span> <span style="font-style: italic;">"css</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">js</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">png</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">jpg</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">svg</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">ico"</span>
+         <span style="font-weight: bold;">:publishing-directory</span> <span style="font-style: italic;">"./public/static/"</span>
+         <span style="font-weight: bold;">:recursive</span> t
+         <span style="font-weight: bold;">:publishing-function</span> org-publish-attachment)
 
-        ("blog" :components ("blog-org" "blog-static"))))
+        (<span style="font-style: italic;">"blog"</span> <span style="font-weight: bold;">:components</span> (<span style="font-style: italic;">"blog-org"</span> <span style="font-style: italic;">"blog-static"</span>))))
 
-(defun my/org-blog-update-recent ()
-  "根据 org 文件更新时间生成 recent.org 文件，用于首页显示最近更新文章列表。"
-  (interactive)
-  (let* ((org-dir "./org")
-         (files (directory-files (expand-file-name "posts" org-dir) t "\\.org$"))
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/org-blog-update-recent</span> ()
+  <span style="font-style: italic;">"&#26681;&#25454; org &#25991;&#20214;&#26356;&#26032;&#26102;&#38388;&#29983;&#25104; recent.org &#25991;&#20214;&#65292;&#29992;&#20110;&#39318;&#39029;&#26174;&#31034;&#26368;&#36817;&#26356;&#26032;&#25991;&#31456;&#21015;&#34920;&#12290;"</span>
+  (<span style="font-weight: bold;">interactive</span>)
+  (<span style="font-weight: bold;">let*</span> ((org-dir <span style="font-style: italic;">"./org"</span>)
+         (files (directory-files (expand-file-name <span style="font-style: italic;">"posts"</span> org-dir) t <span style="font-style: italic;">"\\.org$"</span>))
          (recent-files
           (sort files
-                (lambda (a b)
+                (<span style="font-weight: bold;">lambda</span> (a b)
                   (time-less-p (nth 5 (file-attributes b))
                                (nth 5 (file-attributes a))))))
          (top-5 (seq-take recent-files 5)))
-    (with-temp-file (expand-file-name "recent.org" org-dir)
-      (insert "* 最近更新\n")
-      (dolist (f top-5)
-        (let* ((filename (file-name-nondirectory f))
-               (title (with-temp-buffer
+    (<span style="font-weight: bold;">with-temp-file</span> (expand-file-name <span style="font-style: italic;">"recent.org"</span> org-dir)
+      (insert <span style="font-style: italic;">"* &#26368;&#36817;&#26356;&#26032;\n"</span>)
+      (<span style="font-weight: bold;">dolist</span> (f top-5)
+        (<span style="font-weight: bold;">let*</span> ((filename (file-name-nondirectory f))
+               (title (<span style="font-weight: bold;">with-temp-buffer</span>
                         (insert-file-contents f)
                         (goto-char (point-min))
-                        (if (re-search-forward "^#\\+TITLE: \\(.*\\)" nil t)
+                        (<span style="font-weight: bold;">if</span> (re-search-forward <span style="font-style: italic;">"^#\\+TITLE: </span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">(</span><span style="font-style: italic;">.*</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">)</span><span style="font-style: italic;">"</span> nil t)
                             (match-string 1)
                           filename))))
-          (insert (format "- [[file:posts\\%s][%s]]\n" filename title)))))))
+          (insert (format <span style="font-style: italic;">"- [[file:posts\\%s][%s]]\n"</span> filename title)))))))
 
 
-(defun my/publish-blog ()
-  "一键发布博客"
-  (interactive)
-  (org-publish "blog" t))
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/publish-blog</span> ()
+  <span style="font-style: italic;">"&#19968;&#38190;&#21457;&#24067;&#21338;&#23458;"</span>
+  (<span style="font-weight: bold;">interactive</span>)
+  (org-publish <span style="font-style: italic;">"blog"</span> t))
 
 </pre>
 </div>
