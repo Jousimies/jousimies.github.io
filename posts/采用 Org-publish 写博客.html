@@ -6,7 +6,7 @@
 <!-- 2025-04-09 Wed 06:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About Me</title>
+<title>采用 Org-publish 写博客</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -197,38 +197,94 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">About Me</h1>
+<h1 class="title">采用 Org-publish 写博客</h1>
 <p>
-Hi there!
+本站的内容使用 Emacs 编辑 org-mode 文件，使用 org-publish 导出为 html 文件，布署于 Github 之上。
 </p>
 
 <p>
-This blog is a place for me to share my thoughts and life in general.
+Emacs 中的基本配置内容如下：
 </p>
 
-<p>
-Explore, Evolve, Fulfill Being suggests a philosophy of personal growth and development:
-</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(require 'ox-publish)
+
+(defvar my/blog-nav-html
+  "&lt;a href=\"/index.html\"&gt;首页&lt;/a&gt;
+     &lt;a href=\"/about.html\"&gt;关于&lt;/a&gt;"
+  "博客页面导航栏 HTML 片段。")
+
+(setq org-publish-project-alist
+      `(
+        ("blog-org"
+         :base-directory "./org/"
+         :base-extension "org"
+         :publishing-directory "./public/"
+         :recursive t
+         :html-head "&lt;link rel=\"stylesheet\" href=\"/static/style.css\" /&gt;"
+         :html-head-extra "&lt;script src=\"/static/js/main.js\"&gt;&lt;/script&gt;"
+         :html-preamble nil
+         :html-preamble-format (("en" ,my/blog-nav-html))
+         :html-postamble t
+         :html-postamble-format (("en" "&lt;hr&gt;&lt;div class=\"info\"&gt; &lt;span class=\"created\"&gt;Created with %c on MacOS&lt;/span&gt;
+ &lt;span class=\"updated\"&gt;Updated: %d&lt;/span&gt; &lt;/div&gt;"))
+
+         :with-toc t
+         :section-numbers nil
+         :with-author nil
+         :with-creator nil
+         :with-date t
+         :publishing-function org-html-publish-to-html
+         )
+
+        ("blog-static"
+         :base-directory "./static/"
+         :base-extension "css\\|js\\|png\\|jpg\\|svg\\|ico"
+         :publishing-directory "./public/static/"
+         :recursive t
+         :publishing-function org-publish-attachment)
+
+        ("blog" :components ("blog-org" "blog-static"))))
+
+(defun my/org-blog-update-recent ()
+  "根据 org 文件更新时间生成 recent.org 文件，用于首页显示最近更新文章列表。"
+  (interactive)
+  (let* ((org-dir "./org")
+         (files (directory-files (expand-file-name "posts" org-dir) t "\\.org$"))
+         (recent-files
+          (sort files
+                (lambda (a b)
+                  (time-less-p (nth 5 (file-attributes b))
+                               (nth 5 (file-attributes a))))))
+         (top-5 (seq-take recent-files 5)))
+    (with-temp-file (expand-file-name "recent.org" org-dir)
+      (insert "* 最近更新\n")
+      (dolist (f top-5)
+        (let* ((filename (file-name-nondirectory f))
+               (title (with-temp-buffer
+                        (insert-file-contents f)
+                        (goto-char (point-min))
+                        (if (re-search-forward "^#\\+TITLE: \\(.*\\)" nil t)
+                            (match-string 1)
+                          filename))))
+          (insert (format "- [[file:posts\\%s][%s]]\n" filename title)))))))
+
+
+(defun my/publish-blog ()
+  "一键发布博客"
+  (interactive)
+  (org-publish "blog" t))
+
+</pre>
+</div>
 
 <p>
-Explore: Encourages one to be curious and open-minded, to seek new experiences, and to learn about the world around us.
-</p>
-
-<p>
-Evolve: Suggests that growth and change are natural parts of life, and encourages us to embrace personal development and evolve into our best selves.
-</p>
-
-<p>
-Fulfill Being: Reminds us to live a life of purpose and meaning, to strive for happiness, to fulfill our potential and to find balance and harmony within ourselves.
-</p>
-
-<p>
-Thanks for stopping by!
+默认导出的 html 文件非常的简单，需要结合 <a href="我的博客的CSS配置文件.html">CSS 文件</a>和 JS 文件，以实现高阶的需求。
 </p>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: </span> </div>
+ <span class="updated">Updated: 2025-04-09 Wed 13:57</span> </div>
 </div>
 </body>
 </html>
