@@ -1,5 +1,12 @@
 // main.js
 function addNavigationButtons() {
+  // 判断是否在首页
+  const isHomepage =
+    window.location.pathname === '/' ||
+    window.location.pathname.endsWith('/index.html');
+
+  if (isHomepage) return; // 如果是首页，不添加按钮
+
   // 创建按钮容器
   const container = document.createElement('div');
   container.classList.add('nav-buttons');
@@ -24,8 +31,9 @@ function addNavigationButtons() {
   document.body.appendChild(container);
 }
 
-// 等页面加载完后，添加导航按钮
+// 页面加载完后执行
 window.onload = addNavigationButtons;
+
 
 // main.js
 // 加载highlight.js并高亮代码块

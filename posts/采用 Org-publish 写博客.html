@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-09 Wed 06:43 -->
+<!-- 2025-04-10 Thu 00:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>采用 Org-publish 写博客</title>
@@ -206,7 +206,27 @@
 </p>
 
 <p>
-Emacs 中的基本配置内容如下：
+博客的架构如下：
+</p>
+<blockquote>
+<p>
+├── build.el
+├── init.el
+├── org
+│   ├── about.org
+│   ├── index.org
+│   └── posts
+│       ├── 采用 Org-publish 写博客.org
+│       └── 我的博客的CSS配置文件.org
+└── static
+    ├── js
+    │   └── main.js
+    └── style.css
+</p>
+</blockquote>
+
+<p>
+Emacs 中的基本配置 <code>init.el</code> 内容如下：
 </p>
 
 <div class="org-src-container">
@@ -282,12 +302,40 @@ Emacs 中的基本配置内容如下：
 </div>
 
 <p>
-默认导出的 html 文件非常的简单，需要结合 <a href="我的博客的CSS配置文件.html">CSS 文件</a>和 JS 文件，以实现高阶的需求。
+<code>build.el</code> 中的内容如下：
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">package</span>)
+(add-to-list 'package-archives '(<span style="font-style: italic;">"melpa"</span> . <span style="font-style: italic;">"https://melpa.org/packages/"</span>) t)
+(package-initialize)
+
+(<span style="font-weight: bold;">unless</span> package-archive-contents
+  (package-refresh-contents))
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#23433;&#35013; org &#21253;&#65288;&#22914;&#26524;&#20320;&#20381;&#36182; org-plus-contrib&#65292;&#35831;&#26681;&#25454;&#38656;&#35201;&#25913;&#65289;</span>
+(<span style="font-weight: bold;">unless</span> (package-installed-p 'org)
+  (package-install 'org))
+
+(<span style="font-weight: bold;">unless</span> (package-installed-p 'htmlize)
+  (package-install 'htmlize))
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#21152;&#36733;&#20320;&#30340; publish &#35774;&#32622;</span>
+(load-file <span style="font-style: italic;">"init.el"</span>)
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#25191;&#34892;&#21457;&#24067;</span>
+(org-publish-all t)
+
+(message <span style="font-style: italic;">"Blog published successfully."</span>)
+</pre>
+</div>
+
+<p>
+默认导出的 html 文件非常的简单，需要结合 <a href="我的博客的CSS配置文件.html">CSS 文件</a> 和 JS 文件，以实现高阶的需求，比如界面的美化、回到上一页、回到首页的功能、侧边栏、动态目录等等。
 </p>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-09 Wed 13:57</span> </div>
+ <span class="updated">Updated: 2025-04-10 Thu 08:45</span> </div>
 </div>
 </body>
 </html>
