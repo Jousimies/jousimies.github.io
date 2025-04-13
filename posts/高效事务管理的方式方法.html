@@ -6,7 +6,7 @@
 <!-- 2025-04-13 Sun 11:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>使用 ledger 进行复式记账</title>
+<title>高效事务管理的方式方法</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -200,38 +200,11 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">使用 ledger 进行复式记账</h1>
-<p>
-在 Emacs 中进行财务的记账管理有好几个插件，ledger、hledger、beancount。
-</p>
-
-<p>
-我原来使用 beancount，因其具有很好看的 fava 界面。目前切换到了 ledger 上使用，因为 beancount V3 版本中少了几个好用的功能，如 bean-report、forcasting 等。
-</p>
-
-<p>
-Emacs 中使用 ledger 记账的设置还是很简单的，基本配置如下：
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#25105;&#20351;&#29992; git submodule &#31649;&#29702; packages</span>
-(<span style="font-weight: bold;">use-package</span> ledger-mode
-  <span style="font-weight: bold;">:load-path</span> <span style="font-style: italic;">"packages/ledger-mode/"</span>
-  <span style="font-weight: bold;">:mode</span> (<span style="font-style: italic;">"\\.ledger\\'"</span> . ledger-mode))
-</pre>
-</div>
-
-<p>
-在 Emacs 中打开以 .ledger 结尾的文件，进行记录就可以啦。内容怎么记录可以参考 <a href="https://ledger-cli.org/doc/ledger3.html#Ledger-Tutorial">ledger 官方帮助文档第 2 节</a>。
-</p>
-
-<p>
-关于 ledger 的使用，可以查阅<a href="https://ledger-cli.org/doc/ledger3.html">官方文档</a>，我的简单使用理解见 <a href="ledger 文档翻译.html">ledger 文档翻译</a>。
-</p>
+<h1 class="title">高效事务管理的方式方法</h1>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-13 Sun 19:28</span> </div>
+ <span class="updated">Updated: 2025-04-13 Sun 19:49</span> </div>
 </div>
 </body>
 </html>
