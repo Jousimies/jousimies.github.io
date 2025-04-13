@@ -6,7 +6,7 @@
 <!-- 2025-04-13 Sun 07:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>做好结构设计的原则</title>
+<title>使用 ledger 进行复式记账</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -200,39 +200,34 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">做好结构设计的原则</h1>
-<blockquote>
+<h1 class="title">使用 ledger 进行复式记账</h1>
 <p>
-结构设计总则是把握好美观性+适用性+安全性+经济性+施工方便之间的平衡关系。
-</p>
-</blockquote>
-
-<p>
-清华大学建筑设计研究院的总结刘凤阁总结的五条原则，此外加上一条关于概念设计的内容<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>。
+在 Emacs 中进行财务的记账管理有好几个插件，ledger、hledger、beancount。
 </p>
 
-<ul class="org-ul">
-<li>重视结构概念设计、熟悉材料结构方案；</li>
-<li>熟悉各类结构体系、把握总体结构方案；</li>
-<li>全面理解规范精神、准确执行规范条文；</li>
-<li>切实掌握力学概念、合理利用结构特性；</li>
-<li>正确建立计算模型、认真分析电算结果；</li>
-<li>准确表达设计意图、力求保证施工质量；</li>
-</ul>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
+<p>
+我原来使用 beancount，因其具有很好看的 fava 界面。目前切换到了 ledger 上使用，因为 beancount V3 版本中少了几个好用的功能，如 bean-report、forcasting 等。
+</p>
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-孙海林. 手把手教你建筑结构设计. 中国建筑工业出版社, 2009. <a href="https://book.douban.com/subject/3554573/">https://book.douban.com/subject/3554573/</a>.
-</p></div></div>
+<p>
+Emacs 中使用 ledger 记账的设置还是很简单的，基本配置如下：
+</p>
 
-
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#25105;&#20351;&#29992; git submodule &#31649;&#29702; packages</span>
+(<span style="font-weight: bold;">use-package</span> ledger-mode
+  <span style="font-weight: bold;">:load-path</span> <span style="font-style: italic;">"packages/ledger-mode/"</span>
+  <span style="font-weight: bold;">:mode</span> (<span style="font-style: italic;">"\\.ledger\\'"</span> . ledger-mode))
+</pre>
 </div>
-</div></div>
+
+<p>
+关于 ledger 的使用，可以查阅<a href="https://ledger-cli.org/doc/ledger3.html">官方文档</a>，我的简单使用理解见 <a href="ledger 文档翻译.html">ledger 文档翻译</a>。
+</p>
+</div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-11 Fri 10:46</span> </div>
+ <span class="updated">Updated: 2025-04-13 Sun 15:04</span> </div>
 </div>
 </body>
 </html>

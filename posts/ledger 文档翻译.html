@@ -6,7 +6,7 @@
 <!-- 2025-04-13 Sun 07:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>做好结构设计的原则</title>
+<title>ledger 文档翻译</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -200,39 +200,42 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">做好结构设计的原则</h1>
-<blockquote>
+<h1 class="title">ledger 文档翻译</h1>
+<div id="outline-container-org3e8fa86" class="outline-2">
+<h2 id="org3e8fa86">使用 ledger 记账的原则</h2>
+<div class="outline-text-2" id="text-org3e8fa86">
 <p>
-结构设计总则是把握好美观性+适用性+安全性+经济性+施工方便之间的平衡关系。
-</p>
-</blockquote>
-
-<p>
-清华大学建筑设计研究院的总结刘凤阁总结的五条原则，此外加上一条关于概念设计的内容<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>。
+会计记账原理中采用“借”、“贷”来解释金钱从哪来，到哪去。在 ledger 中使用加和减来表示借贷。两者的意图是一致的。
 </p>
 
-<ul class="org-ul">
-<li>重视结构概念设计、熟悉材料结构方案；</li>
-<li>熟悉各类结构体系、把握总体结构方案；</li>
-<li>全面理解规范精神、准确执行规范条文；</li>
-<li>切实掌握力学概念、合理利用结构特性；</li>
-<li>正确建立计算模型、认真分析电算结果；</li>
-<li>准确表达设计意图、力求保证施工质量；</li>
-</ul>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
+<p>
+一笔交易至少涉及到两个账户，钱从源账户流向目标账户。因此记账的第一步是要明确钱从哪来到哪去。
+</p>
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-孙海林. 手把手教你建筑结构设计. 中国建筑工业出版社, 2009. <a href="https://book.douban.com/subject/3554573/">https://book.douban.com/subject/3554573/</a>.
-</p></div></div>
-
-
+<p>
+在 ledger 中所有的支出都显示正值，而收入则显示负值。
+</p>
 </div>
-</div></div>
+<div id="outline-container-org8420195" class="outline-3">
+<h3 id="org8420195">Assets 和 Liabilities</h3>
+<div class="outline-text-3" id="text-org8420195">
+<p>
+Assets 是资产账户，记录了你个人所拥有的金钱。Liabilities 是信用账户，记录了你应付的金钱，属于别人、银行的钱。
+</p>
+
+<p>
+资产的增加一般是来自于收入（并不严格）。具体到某个资产账户金钱的增加，可能来源于另一个资产账户，也可能来自于支出（退款）。
+</p>
+</div>
+</div>
+<div id="outline-container-orge981407" class="outline-3">
+<h3 id="orge981407">商品和货币</h3>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-11 Fri 10:46</span> </div>
+ <span class="updated">Updated: 2025-04-13 Sun 15:14</span> </div>
 </div>
 </body>
 </html>
