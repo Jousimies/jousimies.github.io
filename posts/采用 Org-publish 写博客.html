@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-13 Sun 11:33 -->
+<!-- 2025-04-13 Sun 11:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>采用 Org-publish 写博客</title>
@@ -206,9 +206,14 @@
 </p>
 
 <p>
+我的博客源文档放置于私有 Github 仓库中，通过 Github actions 推送到开源的 jousimies.github.io 仓库中。
+</p>
+
+
+<p>
 博客的架构如下：
 </p>
-<pre class="example" id="org79dc2f5">
+<pre class="example" id="org9fce446">
 ├── build.el
 ├── init.el
 ├── org
@@ -330,10 +335,50 @@ Emacs 中的基本配置 <code>init.el</code> 内容如下：
 <p>
 默认导出的 html 文件非常的简单，需要结合 <a href="我的博客的CSS配置文件.html">CSS 文件</a> 和 JS 文件，以实现高阶的需求，比如界面的美化、回到上一页、回到首页的功能、侧边栏、动态目录等等。
 </p>
+
+<p>
+关于 Github actions 的使用，问 Chatgpt 就好啦，需要注意使用 <code>personal_token</code> 。我的配置如下：
+</p>
+<div class="org-src-container">
+<pre class="src src-yaml-ts">name: Deploy Blog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: 30.1
+
+      - name: Install Org and dependencies
+        run: emacs --batch -l build.el
+
+      - name: Publish blog
+        run: emacs --batch -l init.el -f org-publish-all
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./public
+          external_repository: Jousimies/jousimies.github.io
+          publish_branch: main
+</pre>
+</div>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-13 Sun 19:30</span> </div>
+ <span class="updated">Updated: 2025-04-13 Sun 19:38</span> </div>
 </div>
 </body>
 </html>
