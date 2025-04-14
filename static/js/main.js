@@ -47,3 +47,20 @@ window.onload = addNavigationButtons;
 document.addEventListener("DOMContentLoaded", function() {
   Prism.highlightAll();
 });
+
+// sitemap 图标插入
+document.addEventListener("DOMContentLoaded", function () {
+  const sitemapLink = document.createElement("a");
+  sitemapLink.href = "/posts/sitemap.html";
+  sitemapLink.title = "Sitemap";
+  sitemapLink.className = "sitemap-icon";
+  sitemapLink.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 4h16M4 12h16M4 20h16" />
+    </svg>
+  `;
+
+  document.body.appendChild(sitemapLink);
+});

@@ -171,10 +171,31 @@ ul li, ol li {
   left: 20px;
 }
 
-/* 返回首页按钮，放置在右上角 */
 .nav-buttons .home-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
 }
 
+.sitemap-icon {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #007acc;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.sitemap-icon:hover {
+  background-color: #005a99;
+}
+
+.sitemap-icon .icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
