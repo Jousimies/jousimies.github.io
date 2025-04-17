@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-14 Mon 05:17 -->
+<!-- 2025-04-17 Thu 06:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ledger 文档翻译</title>
+<title>ledger 使用流程</title>
 <meta name="author" content="Jousimies" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
@@ -17,45 +17,280 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">ledger 文档翻译</h1>
+<h1 class="title">ledger 使用流程</h1>
 <p>
-施工中。。。。🤪🤪🤪
+Ledger CLI 是一个功能强大的命令行双式记账工具，用于管理个人或企业财务。
 </p>
-<div id="outline-container-org8c264a2" class="outline-2">
-<h2 id="org8c264a2"><span class="section-number-2">1.</span> 使用 ledger 记账的原则</h2>
+<div id="outline-container-org86cc128" class="outline-2">
+<h2 id="org86cc128"><span class="section-number-2">1.</span> 复式记账的基本原理</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>账户结构：五大类，通常设置3个层级即可。
+费用（Expenses） + 资产（Assets）= 所有者权益（Equity）+ 负债（Liabilities）+ 收入（ Income ）</li>
+
+<li>复式记账：每笔交易涉及借方和贷方，总和为零。
+首先要理解什么是会计衡等式。这里面还有个较难理解的概念是借记贷记（借贷），英文中的 debit 和 credit 。</li>
+</ul>
+
+<blockquote>
 <p>
-会计记账原理中采用“借”、“贷”来解释金钱从哪来，到哪去。在 ledger 中使用加和减来表示借贷。两者的意图是一致的。
+The destination account is debited; The source account for the transaction is credited.
 </p>
 
 <p>
-一笔交易至少涉及到两个账户，钱从源账户流向目标账户。因此记账的第一步是要明确钱从哪来到哪去。
+An account is anywhere money can go.
 </p>
 
 <p>
-在 ledger 中所有的支出都显示正值，而收入则显示负值。
+There must always be a debit from at least one account for every credit made to another account.
 </p>
-</div>
-<div id="outline-container-orgfb4e80f" class="outline-3">
-<h3 id="orgfb4e80f"><span class="section-number-3">1.1.</span> Assets 和 Liabilities</h3>
-<div class="outline-text-3" id="text-1-1">
+</blockquote>
+
+<blockquote>
 <p>
-Assets 是资产账户，记录了你个人所拥有的金钱。Liabilities 是信用账户，记录了你应付的金钱，属于别人、银行的钱。
+为什么要贷（Debit）给你？因为你有信用（Credit）啊！
+</p>
+</blockquote>
+
+<ol class="org-ol">
+<li><code>收付实现制</code> 与 <code>权责发生制</code></li>
+</ol>
+<p>
+举个简单的例子说明二者的含义。拿交房租来说，年初你交了未来半年的房租 12000 CNY，收付实现制会这么记账，年初支出 12000 CNY，只有这 1 笔。权责发生制会这么记，未来的 6 个月，每月支出 2000 CNY，共 6 笔。 个人采用的是前者，即收付实现制，主要优点是方便对账，毕竟银行的流水只有 1 笔 12000 CNY 的。他的缺点也很明显，会导致月度财务报表并不准确，不能清晰反应月度收支情况。所以采用收付实现制，在查看报表的时候，不应简单的去看数字的绝对值。
 </p>
 
+<ol class="org-ol">
+<li><code>负支出</code></li>
+</ol>
 <p>
-资产的增加一般是来自于收入（并不严格）。具体到某个资产账户金钱的增加，可能来源于另一个资产账户，也可能来自于支出（退款）。
+电商购物退款退货的场景很常见，月初买了一个东西，记了一笔支出，到货后发现不合适申请退货，中旬退款回到原支付渠道。我该怎么记这笔退款呢？省事的办法是把月初记的支出那笔删除，还有一个办法是退款导致时记一笔收入。但是聪明的你一定会发现这两种方法都不太理想，前者不能反应真实流水，后者会导致月度报表支出与收入都虚高。 比较合理的做法是退款时记录一笔负支出。当你意识到支出可以是负的时候，很多帐目记起来就简单多了。
 </p>
 </div>
 </div>
-<div id="outline-container-orge286980" class="outline-3">
-<h3 id="orge286980"><span class="section-number-3">1.2.</span> 商品和货币</h3>
+<div id="outline-container-orgd40777d" class="outline-2">
+<h2 id="orgd40777d"><span class="section-number-2">2.</span> Ledger 语法知识</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>文本文件：使用 `.ledger` 文件存储交易。在 Emacs 中可以在文件的头部增加 ~;; -<b>- mode: ledger -</b>-~，Emacs 会自动使用 ledger-mode。</li>
+</ul>
+
+<p>
+终端安装 <code>ledger</code> ：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">brew install ledger
+</pre>
+</div>
+
+<p>
+常用命令有余额查询、交易明细记录、预算管理等。
+</p>
+<ul class="org-ul">
+<li><p>
+余额查询：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt balance
+</pre>
+</div></li>
+
+<li><p>
+交易明细：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt register Expenses
+</pre>
+</div></li>
+
+<li><p>
+预算管理：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt budget
+</pre>
+</div></li>
+</ul>
+</div>
+<div id="outline-container-org48ec365" class="outline-3">
+<h3 id="org48ec365"><span class="section-number-3">2.1.</span> Ledger 命令行的可选参数有哪些？</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org43e4f06" class="outline-4">
+<h4 id="org43e4f06"><span class="section-number-4">2.1.1.</span> 全局选项</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li><code>-f FILE</code>: 指定 Ledger 文件。</li>
+<li><code>--verbose</code>: 显示详细日志。</li>
+<li><code>--version</code>: 显示版本。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd6abb86" class="outline-4">
+<h4 id="orgd6abb86"><span class="section-number-4">2.1.2.</span> 时间范围选项</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li><p>
+<code>-b DATE</code>: 开始日期。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt -b <span style="font-style: italic;">"2025/04/01"</span> register
+</pre>
+</div></li>
+
+<li><p>
+<code>-p PERIOD</code>: 时间周期。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt -p <span style="font-style: italic;">"2025/04"</span> balance
+</pre>
+</div></li>
+
+<li><code>--monthly</code>: 按月汇总。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org11489ca" class="outline-4">
+<h4 id="org11489ca"><span class="section-number-4">2.1.3.</span> 报表过滤选项</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li><code>-c</code>: 仅已清算交易。</li>
+
+<li><p>
+<code>-l EXPR</code>: 表达式过滤。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt -l <span style="font-style: italic;">"amount &gt; 100"</span> register
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org46e8886" class="outline-4">
+<h4 id="org46e8886"><span class="section-number-4">2.1.4.</span> 输出格式选项</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<ul class="org-ul">
+<li><p>
+<code>--format FMT</code>: 自定义格式。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt --format <span style="font-style: italic;">"%(date),%(payee),%(amount)\n"</span> register &gt; report.csv
+</pre>
+</div></li>
+
+<li><code>--json</code>: 输出 JSON。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org612547e" class="outline-4">
+<h4 id="org612547e"><span class="section-number-4">2.1.5.</span> 货币和资产选项</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<ul class="org-ul">
+<li><code>-X CURRENCY</code>: 转换为指定货币。</li>
+<li><code>-V</code>: 按市场价值计算。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9565bc7" class="outline-2">
+<h2 id="org9565bc7"><span class="section-number-2">3.</span> 经济学角度，财务报告应查看哪些方面？</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb2c2bbd" class="outline-3">
+<h3 id="orgb2c2bbd"><span class="section-number-3">3.1.</span> 资产与负债：高净资产表明财务缓冲能力。</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt balance ^Assets ^Liabilities
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfd7b4d2" class="outline-3">
+<h3 id="orgfd7b4d2"><span class="section-number-3">3.2.</span> 收入与支出：正现金流支持资源积累</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+查看损益：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt balance ^Income ^Expenses
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga200e2a" class="outline-3">
+<h3 id="orga200e2a"><span class="section-number-3">3.3.</span> 预算偏差：偏差反映财务纪律</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt budget
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdfda5a5" class="outline-3">
+<h3 id="orgdfda5a5"><span class="section-number-3">3.4.</span> 投资回报：高回报率表明资源配置效率</h3>
+<div class="outline-text-3" id="text-3-4">
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt balance Assets:Investment -X CNY
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org80e9d54" class="outline-3">
+<h3 id="org80e9d54"><span class="section-number-3">3.5.</span> 风险与可持续性：低流动性增加经济脆弱性</h3>
+<div class="outline-text-3" id="text-3-5">
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt balance Assets:Bank
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga2f2671" class="outline-2">
+<h2 id="orga2f2671"><span class="section-number-2">4.</span> Ledger 记录基金和股票</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+通过记录份额和当前的单价即可计算当前基金的价值是多少。
+</p>
+<div class="org-src-container">
+<pre class="src src-ledger">Assets:Investment:Funds:110003            98.12 FUND @ 1.8321 CNY
+P 2025-04-16 FUND 1.7864 CNY
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt bal ^Assets:Inv -X CNY --gain
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org99fa9d5" class="outline-2">
+<h2 id="org99fa9d5"><span class="section-number-2">5.</span> 报告怎么排除某个账户？</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+在 <code>register</code> 报表中排除账户使用 <code>and not</code> 。如果只查某个账户可以使用 <code>--limit</code> 。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">ledger -f main.txt reg ^Expenses and not Expenses:Food
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeb4f11c" class="outline-2">
+<h2 id="orgeb4f11c"><span class="section-number-2">6.</span> 参考资源</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Ledger CLI 文档：<a href="https://ledger-cli.org">https://ledger-cli.org</a></li>
+<li>Plain Text Accounting：<a href="https://plaintextaccounting.org">https://plaintextaccounting.org</a></li>
+<li>Org-mode 文档：<a href="https://orgmode.org">https://orgmode.org</a></li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-13 Sun 19:26</span> </div>
+ <span class="updated">Updated: 2025-04-17 Thu 14:57</span> </div>
 </div>
 </body>
 </html>
