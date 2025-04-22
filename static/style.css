@@ -199,3 +199,15 @@ ul li, ol li {
   height: 24px;
   display: block;
 }
+
+/* table */
+.table-centered {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+.table-centered th, .table-centered td {
+    border: 1px solid black;
+    padding: 8px;
+}
