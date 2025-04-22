@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-22 Tue 06:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>结构设计专业术语汇总</title>
+<meta name="author" content="Jousimies" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+         <script src="/static/js/main.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">结构设计专业术语汇总</h1>
+<div id="outline-container-orgaec1f99" class="outline-2">
+<h2 id="orgaec1f99"><span class="section-number-2">1.</span> 细度模数</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+细度模数（Fineness Modulus，FM）是用于评价砂子粗细程度的指标，通过标准筛分试验计算得出。
+</p>
+
+<ol class="org-ol">
+<li><p>
+定义与作用
+</p>
+
+<p>
+细度模数反映砂子的平均颗粒大小，数值越大，砂子越粗。
+</p>
+
+<p>
+广泛应用于混凝土配比设计，帮助判断砂的级配是否合理，影响混凝土的和易性和强度。
+</p>
+
+<p>
+通过细度模数，可快速评估砂子适用性，但需结合其他参数综合判断。
+</p>
+
+<ul class="org-ul">
+<li>级配曲线：细度模数仅反映平均粗细，需结合级配曲线分析颗粒分布。</li>
+
+<li>标准差异：不同地区（如 ASTM 与国标）的分类可能略有不同，需参考当地规范。</li>
+
+<li>混凝土配比：粗砂需更多水泥浆包裹，细砂需减少砂率以防需水量过高。</li>
+
+<li>质量控制：确保砂的 FM 在合理范围内（通常中砂 FM=2.3-3.0）以优化混凝土性能。</li>
+</ul></li>
+
+<li>计算步骤
+<ol class="org-ol">
+<li>筛分试验：
+使用标准筛（孔径为4.75mm、2.36mm、1.18mm、600μm、300μm、150μm）对砂样进行筛分，称量各筛余质量。</li>
+
+<li>计算累计筛余百分率：
+从最大孔径筛开始，逐级累加各筛的分计筛余百分率。例如：
+<ol class="org-ol">
+<li>4.75mm筛：分计筛余5% → 累计筛余5%；</li>
+<li>2.36mm筛：分计筛余10% → 累计筛余5%+10%=15%；</li>
+<li>依此类推至150μm筛。</li>
+</ol></li>
+
+<li>求累计筛余总和：
+将各筛（4.75mm至150μm）的累计筛余百分率相加。</li>
+
+<li><p>
+计算细度模数：
+</p>
+
+<p>
+\[
+      FM = \frac{\text{累计筛余总和}}{100}
+      \]
+</p>
+
+<p>
+假设某砂样筛分结果如下（累计筛余百分率）：
+</p>
+
+<p>
+4.75mm=5%，2.36mm=15%，1.18mm=30%，600μm=60%，300μm=80%，150μm=95%。
+</p>
+
+<ul class="org-ul">
+<li>累计总和 = 5 + 15 + 30 + 60 + 80 + 95 = 285</li>
+
+<li>细度模数 = 285 / 100 = 2.85</li>
+</ul></li>
+</ol></li>
+
+<li>粗细程度分类</li>
+</ol>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">类型</th>
+<th scope="col" class="org-right">细度模数范围</th>
+<th scope="col" class="org-left">砂子描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">粗砂</td>
+<td class="org-right">3.7-3.1</td>
+<td class="org-left">颗粒明显粗糙</td>
+</tr>
+
+<tr>
+<td class="org-left">中砂</td>
+<td class="org-right">3.0-2.3</td>
+<td class="org-left">适中，最常用</td>
+</tr>
+
+<tr>
+<td class="org-left">细砂</td>
+<td class="org-right">2.2-1.6</td>
+<td class="org-left">颗粒较细腻</td>
+</tr>
+
+<tr>
+<td class="org-left">特细砂</td>
+<td class="org-right">1.5-0.7</td>
+<td class="org-left">接近粉状，需慎用</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
+ <span class="updated">Updated: 2025-04-22 Tue 14:08</span> </div>
+</div>
+</body>
+</html>
