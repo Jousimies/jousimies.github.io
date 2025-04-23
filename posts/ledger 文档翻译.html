@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-23 Wed 15:07 -->
+<!-- 2025-04-23 Wed 15:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ledger 使用流程</title>
@@ -21,8 +21,8 @@
 <p>
 Ledger CLI 是一个功能强大的命令行双式记账工具，用于管理个人或企业财务。
 </p>
-<div id="outline-container-orgfaf06cf" class="outline-2">
-<h2 id="orgfaf06cf"><span class="section-number-2">1.</span> 复式记账的基本原理</h2>
+<div id="outline-container-org5433bf2" class="outline-2">
+<h2 id="org5433bf2"><span class="section-number-2">1.</span> 复式记账的基本原理</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>账户结构：五大类，通常设置3个层级即可。
@@ -67,8 +67,8 @@ There must always be a debit from at least one account for every credit made to 
 </p>
 </div>
 </div>
-<div id="outline-container-org55ec547" class="outline-2">
-<h2 id="org55ec547"><span class="section-number-2">2.</span> Ledger 语法知识</h2>
+<div id="outline-container-org669f2a5" class="outline-2">
+<h2 id="org669f2a5"><span class="section-number-2">2.</span> Ledger 语法知识</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>文本文件：使用 `.ledger` 文件存储交易。在 Emacs 中可以在文件的头部增加 ~;; -<b>- mode: ledger -</b>-~，Emacs 会自动使用 ledger-mode。</li>
@@ -112,12 +112,12 @@ There must always be a debit from at least one account for every credit made to 
 </div></li>
 </ul>
 </div>
-<div id="outline-container-orgc27b9d1" class="outline-3">
-<h3 id="orgc27b9d1"><span class="section-number-3">2.1.</span> Ledger 命令行的可选参数有哪些？</h3>
+<div id="outline-container-org30537f5" class="outline-3">
+<h3 id="org30537f5"><span class="section-number-3">2.1.</span> Ledger 命令行的可选参数有哪些？</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org299206e" class="outline-4">
-<h4 id="org299206e"><span class="section-number-4">2.1.1.</span> 全局选项</h4>
+<div id="outline-container-org150d73e" class="outline-4">
+<h4 id="org150d73e"><span class="section-number-4">2.1.1.</span> 全局选项</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li><code>-f FILE</code>: 指定 Ledger 文件。</li>
@@ -126,8 +126,8 @@ There must always be a debit from at least one account for every credit made to 
 </ul>
 </div>
 </div>
-<div id="outline-container-orgecd4d97" class="outline-4">
-<h4 id="orgecd4d97"><span class="section-number-4">2.1.2.</span> 时间范围选项</h4>
+<div id="outline-container-orga223ee1" class="outline-4">
+<h4 id="orga223ee1"><span class="section-number-4">2.1.2.</span> 时间范围选项</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li><p>
@@ -150,8 +150,8 @@ There must always be a debit from at least one account for every credit made to 
 </ul>
 </div>
 </div>
-<div id="outline-container-org1451fbf" class="outline-4">
-<h4 id="org1451fbf"><span class="section-number-4">2.1.3.</span> 报表过滤选项</h4>
+<div id="outline-container-org65e762b" class="outline-4">
+<h4 id="org65e762b"><span class="section-number-4">2.1.3.</span> 报表过滤选项</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li><code>-c</code>: 仅已清算交易。</li>
@@ -166,8 +166,8 @@ There must always be a debit from at least one account for every credit made to 
 </ul>
 </div>
 </div>
-<div id="outline-container-org70ba971" class="outline-4">
-<h4 id="org70ba971"><span class="section-number-4">2.1.4.</span> 输出格式选项</h4>
+<div id="outline-container-orgc4e7f02" class="outline-4">
+<h4 id="orgc4e7f02"><span class="section-number-4">2.1.4.</span> 输出格式选项</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <ul class="org-ul">
 <li><p>
@@ -182,8 +182,8 @@ There must always be a debit from at least one account for every credit made to 
 </ul>
 </div>
 </div>
-<div id="outline-container-orgec518b1" class="outline-4">
-<h4 id="orgec518b1"><span class="section-number-4">2.1.5.</span> 货币和资产选项</h4>
+<div id="outline-container-orgd84cbab" class="outline-4">
+<h4 id="orgd84cbab"><span class="section-number-4">2.1.5.</span> 货币和资产选项</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <ul class="org-ul">
 <li><code>-X CURRENCY</code>: 转换为指定货币。</li>
@@ -193,12 +193,12 @@ There must always be a debit from at least one account for every credit made to 
 </div>
 </div>
 </div>
-<div id="outline-container-org19726a3" class="outline-2">
-<h2 id="org19726a3"><span class="section-number-2">3.</span> 经济学角度，财务报告应查看哪些方面？</h2>
+<div id="outline-container-org289426a" class="outline-2">
+<h2 id="org289426a"><span class="section-number-2">3.</span> 经济学角度，财务报告应查看哪些方面？</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgeb5808a" class="outline-3">
-<h3 id="orgeb5808a"><span class="section-number-3">3.1.</span> 资产与负债：高净资产表明财务缓冲能力。</h3>
+<div id="outline-container-org0fa768e" class="outline-3">
+<h3 id="org0fa768e"><span class="section-number-3">3.1.</span> 资产与负债：高净资产表明财务缓冲能力。</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-shell">ledger -f main.txt balance ^Assets ^Liabilities
@@ -206,8 +206,8 @@ There must always be a debit from at least one account for every credit made to 
 </div>
 </div>
 </div>
-<div id="outline-container-orgcfbbc7e" class="outline-3">
-<h3 id="orgcfbbc7e"><span class="section-number-3">3.2.</span> 收入与支出：正现金流支持资源积累</h3>
+<div id="outline-container-org7a0a098" class="outline-3">
+<h3 id="org7a0a098"><span class="section-number-3">3.2.</span> 收入与支出：正现金流支持资源积累</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 查看损益：
@@ -218,8 +218,8 @@ There must always be a debit from at least one account for every credit made to 
 </div>
 </div>
 </div>
-<div id="outline-container-org9f8dfb4" class="outline-3">
-<h3 id="org9f8dfb4"><span class="section-number-3">3.3.</span> 预算偏差：偏差反映财务纪律</h3>
+<div id="outline-container-orgc090310" class="outline-3">
+<h3 id="orgc090310"><span class="section-number-3">3.3.</span> 预算偏差：偏差反映财务纪律</h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-shell">ledger -f main.txt budget
@@ -227,8 +227,8 @@ There must always be a debit from at least one account for every credit made to 
 </div>
 </div>
 </div>
-<div id="outline-container-orgad36ea6" class="outline-3">
-<h3 id="orgad36ea6"><span class="section-number-3">3.4.</span> 投资回报：高回报率表明资源配置效率</h3>
+<div id="outline-container-org98f9269" class="outline-3">
+<h3 id="org98f9269"><span class="section-number-3">3.4.</span> 投资回报：高回报率表明资源配置效率</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <pre class="src src-shell">ledger -f main.txt balance Assets:Investment -X CNY
@@ -236,8 +236,8 @@ There must always be a debit from at least one account for every credit made to 
 </div>
 </div>
 </div>
-<div id="outline-container-orge0594f4" class="outline-3">
-<h3 id="orge0594f4"><span class="section-number-3">3.5.</span> 风险与可持续性：低流动性增加经济脆弱性</h3>
+<div id="outline-container-org1e3578b" class="outline-3">
+<h3 id="org1e3578b"><span class="section-number-3">3.5.</span> 风险与可持续性：低流动性增加经济脆弱性</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 <pre class="src src-shell">ledger -f main.txt balance Assets:Bank
@@ -246,8 +246,8 @@ There must always be a debit from at least one account for every credit made to 
 </div>
 </div>
 </div>
-<div id="outline-container-org8d84870" class="outline-2">
-<h2 id="org8d84870"><span class="section-number-2">4.</span> Ledger 记录基金和股票</h2>
+<div id="outline-container-org0c60740" class="outline-2">
+<h2 id="org0c60740"><span class="section-number-2">4.</span> Ledger 记录基金和股票</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 通过记录份额和当前的单价即可计算当前基金的价值是多少。
@@ -264,8 +264,8 @@ P 2025-04-16 FUND 1.7864 CNY
 </div>
 </div>
 </div>
-<div id="outline-container-orgd778006" class="outline-2">
-<h2 id="orgd778006"><span class="section-number-2">5.</span> 报告怎么排除某个账户？</h2>
+<div id="outline-container-org3b3dab6" class="outline-2">
+<h2 id="org3b3dab6"><span class="section-number-2">5.</span> 报告怎么排除某个账户？</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 在 <code>register</code> 报表中排除账户使用 <code>and not</code> 。如果只查某个账户可以使用 <code>--limit</code> 。
@@ -277,8 +277,8 @@ P 2025-04-16 FUND 1.7864 CNY
 </div>
 </div>
 </div>
-<div id="outline-container-org635d936" class="outline-2">
-<h2 id="org635d936"><span class="section-number-2">6.</span> 记账的步骤</h2>
+<div id="outline-container-org66f488b" class="outline-2">
+<h2 id="org66f488b"><span class="section-number-2">6.</span> 记账的步骤</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 我采取的策略是消费的的同时记录这笔交易，一次操作的时间成本可能就十几二十秒。相比于一个月整理一次的时间成本和心智成本都相对较小。以我过往记账的经验，即使使用导出的账单自动分析处理生成账本同样需要消耗很多的时间，一个月操作一次对账需要半个小时至一个小时的时间。
@@ -315,8 +315,8 @@ P 2025-04-16 FUND 1.7864 CNY
 </div>
 </div>
 </div>
-<div id="outline-container-orgb142407" class="outline-2">
-<h2 id="orgb142407"><span class="section-number-2">7.</span> 参考资源</h2>
+<div id="outline-container-org83ef2ce" class="outline-2">
+<h2 id="org83ef2ce"><span class="section-number-2">7.</span> 参考资源</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Ledger CLI 文档：<a href="https://ledger-cli.org">https://ledger-cli.org</a></li>
