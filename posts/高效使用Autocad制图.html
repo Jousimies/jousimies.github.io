@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-27 Sun 13:23 -->
+<!-- 2025-05-21 Wed 09:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>高效使用Autocad制图</title>
@@ -18,10 +18,35 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">高效使用Autocad制图</h1>
+<div id="outline-container-orgc0f10fb" class="outline-2">
+<h2 id="orgc0f10fb"><span class="section-number-2">1.</span> 清理图纸</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+绘图时经常会在不同的图纸之间复制文件，生成各种块，可能会导致图纸的体积显著增大。
+</p>
+
+<p>
+AutoCAD 自带 PURGE 命令，可以清除不必要的内容。
+</p>
+
+<p>
+有些时候就算执行了 PURGE 命令，效果不明显，CAD图纸的体积还是很大。使用 PURGE 命令后，可以看到块下还是存在很多的不可删除的块。
+</p>
+
+<p>
+可以尝试以下的命令后再执行 PURGE 命令。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-autolisp">(dictremove (namedobjdict) "ACAD_DGNLINESTYLECOMP")
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <hr><div class="info"> <span class="created">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.11) on MacOS</span>
- <span class="updated">Updated: 2025-04-10 Thu 10:48</span> </div>
+ <span class="updated">Updated: 2025-05-21 Wed 17:46</span> </div>
 </div>
 </body>
 </html>
