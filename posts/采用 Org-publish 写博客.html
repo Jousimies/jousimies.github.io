@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-21 Wed 09:49 -->
+<!-- 2025-08-21 Thu 10:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>采用 Org-publish 写博客</title>
@@ -29,7 +29,7 @@
 <p>
 博客的架构如下：
 </p>
-<pre class="example" id="org4f847e4">
+<pre class="example" id="org3e91fd6">
 ├── build.el
 ├── init.el
 ├── org
@@ -52,8 +52,8 @@ Emacs 中的基本配置 <code>init.el</code> 内容如下：
 <pre class="src src-emacs-lisp">(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-publish</span>)
 
 (<span style="font-weight: bold;">defvar</span> <span style="font-weight: bold; font-style: italic;">my/blog-nav-html</span>
-  <span style="font-style: italic;">"&lt;a href=\"/index.html\"&gt;&#39318;&#39029;&lt;/a&gt;</span>
-<span style="font-style: italic;">     &lt;a href=\"/about.html\"&gt;&#20851;&#20110;&lt;/a&gt;"</span>
+  <span style="font-style: italic;">"&lt;a href=\"/index.html\"&gt;&#39318;&#39029;&lt;/a&gt;
+     &lt;a href=\"/about.html\"&gt;&#20851;&#20110;&lt;/a&gt;"</span>
   <span style="font-style: italic;">"&#21338;&#23458;&#39029;&#38754;&#23548;&#33322;&#26639; HTML &#29255;&#27573;&#12290;"</span>)
 
 (<span style="font-weight: bold;">setq</span> org-publish-project-alist
@@ -68,8 +68,8 @@ Emacs 中的基本配置 <code>init.el</code> 内容如下：
          <span style="font-weight: bold;">:html-preamble</span> nil
          <span style="font-weight: bold;">:html-preamble-format</span> ((<span style="font-style: italic;">"en"</span> ,my/blog-nav-html))
          <span style="font-weight: bold;">:html-postamble</span> t
-         <span style="font-weight: bold;">:html-postamble-format</span> ((<span style="font-style: italic;">"en"</span> <span style="font-style: italic;">"&lt;hr&gt;&lt;div class=\"info\"&gt; &lt;span class=\"created\"&gt;Created with %c on MacOS&lt;/span&gt;</span>
-<span style="font-style: italic;"> &lt;span class=\"updated\"&gt;Updated: %d&lt;/span&gt; &lt;/div&gt;"</span>))
+         <span style="font-weight: bold;">:html-postamble-format</span> ((<span style="font-style: italic;">"en"</span> <span style="font-style: italic;">"&lt;hr&gt;&lt;div class=\"info\"&gt; &lt;span class=\"created\"&gt;Created with %c on MacOS&lt;/span&gt;
+ &lt;span class=\"updated\"&gt;Updated: %d&lt;/span&gt; &lt;/div&gt;"</span>))
 
          <span style="font-weight: bold;">:with-toc</span> t
          <span style="font-weight: bold;">:section-numbers</span> nil
@@ -131,18 +131,18 @@ Emacs 中的基本配置 <code>init.el</code> 内容如下：
 (<span style="font-weight: bold;">unless</span> package-archive-contents
   (package-refresh-contents))
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#23433;&#35013; org &#21253;&#65288;&#22914;&#26524;&#20320;&#20381;&#36182; org-plus-contrib&#65292;&#35831;&#26681;&#25454;&#38656;&#35201;&#25913;&#65289;</span>
-(<span style="font-weight: bold;">unless</span> (package-installed-p 'org)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#23433;&#35013; org &#21253;&#65288;&#22914;&#26524;&#20320;&#20381;&#36182; org-plus-contrib&#65292;&#35831;&#26681;&#25454;&#38656;&#35201;&#25913;&#65289;
+</span>(<span style="font-weight: bold;">unless</span> (package-installed-p 'org)
   (package-install 'org))
 
 (<span style="font-weight: bold;">unless</span> (package-installed-p 'htmlize)
   (package-install 'htmlize))
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#21152;&#36733;&#20320;&#30340; publish &#35774;&#32622;</span>
-(load-file <span style="font-style: italic;">"init.el"</span>)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#21152;&#36733;&#20320;&#30340; publish &#35774;&#32622;
+</span>(load-file <span style="font-style: italic;">"init.el"</span>)
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#25191;&#34892;&#21457;&#24067;</span>
-(org-publish-all t)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">&#25191;&#34892;&#21457;&#24067;
+</span>(org-publish-all t)
 
 (message <span style="font-style: italic;">"Blog published successfully."</span>)
 </pre>
